@@ -1,12 +1,14 @@
 import { reactive } from 'vue'
-import { fetchProjects } from '@/fetch.js'
+import { projects } from '@/lib/stores/projects'
 
 export const store = reactive({
   filterValue: "*",
 
   projects: [],
   getProjects() {
-    this.projects = fetchProjects()
+    projects.init().then(() => {
+
+    })
   },
 
   filterProjects(tag) {

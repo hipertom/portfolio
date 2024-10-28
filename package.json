@@ -18,8 +18,8 @@
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@vueuse/components": "^10.9.0",
     "@vueuse/core": "^10.9.0",
+    "appwrite": "^16.0.2",
     "bootstrap": "^4.6.2",
-    "contentful": "^10.8.5",
     "vue": "^3.4.15"
   },
   "devDependencies": {

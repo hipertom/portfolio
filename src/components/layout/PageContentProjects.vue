@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { store } from '@/store.js'
+import { projects } from "@/lib/stores/projects";
 import ProjectItem from '../elements/ProjectItem.vue';
 import FilterLink from '../elements/FilterLink.vue';
 
@@ -8,8 +8,8 @@ let projectLimit = ref(3)
 let buttonShown = ref(true)
 
 onMounted(() => {
-  store.getProjects();
-})
+  projects.init();
+});
 
 function increaseProjectLimit() {
   projectLimit.value += 3
@@ -37,16 +37,12 @@ function increaseProjectLimit() {
 
     <div class="container">
 
-      <div v-if="store.projects.error">Oops! Error encountered: {{ store.projects.error.message }}</div>
-
-      <template v-else-if="store.projects.filteredData">
+      <template v-if="projects.current">
         <TransitionGroup name="list" tag="div" class="row">
-
-          <template v-for="(project) in store.projects.filteredData.slice(0, projectLimit)" :key="project.sys.id">
-            <ProjectItem v-bind="project" />
+          <template v-for="project in projects.current" :key="project.$id">
+            <ProjectItem :project="project" />
           </template>
-
-          </TransitionGroup>
+        </TransitionGroup>
       </template>
 
       <div v-else>Loading...</div>
