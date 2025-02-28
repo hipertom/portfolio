@@ -1,0 +1,951 @@
+{
+  [{
+      "name": "drupal_cookiebar",
+      "description": null
+    },
+    {
+      "name": "drupal_twitter-module",
+      "description": "A Drupal 8 module that displays twitter feed by # or @"
+    },
+    {
+      "name": "drupal_admin-tweaks",
+      "description": "Adds some changes to the admin pages of Drupal"
+    },
+    {
+      "name": "drupal_version-checker",
+      "description": "Drupal module: Adds the possibility to check the php & cms version"
+    },
+    {
+      "name": "drupal_crawler",
+      "description": null
+    },
+    {
+      "name": "drupal_html-test",
+      "description": "Creates a eventSubscriber"
+    },
+    {
+      "name": "drupal_youtube-proxy",
+      "description": "Retreives the best quality youtube thumbnail available without the youtube api."
+    },
+    {
+      "name": "hhsk_static_theme",
+      "description": "Static front-end code for HHSK"
+    },
+    {
+      "name": "ee-addons",
+      "description": null
+    },
+    {
+      "name": "database_backup",
+      "description": "Bashscript to backup database dumps."
+    },
+    {
+      "name": "dev-environment",
+      "description": "This repository contains the contents to run a local development environment with docker."
+    },
+    {
+      "name": "estdigital",
+      "description": "Repository for the est digital site"
+    },
+    {
+      "name": "zigtbase",
+      "description": null
+    },
+    {
+      "name": "vreugdenhil",
+      "description": null
+    },
+    {
+      "name": "EWS-Wadden",
+      "description": null
+    },
+    {
+      "name": "fondsstamcel",
+      "description": null
+    },
+    {
+      "name": "wdbnk",
+      "description": null
+    },
+    {
+      "name": "EOP-website",
+      "description": null
+    },
+    {
+      "name": "walker",
+      "description": null
+    },
+    {
+      "name": "Zigt-ProToo",
+      "description": "Zigt Project Tool (ProToo)"
+    },
+    {
+      "name": "hangloose",
+      "description": null
+    },
+    {
+      "name": "sleutelfactor",
+      "description": "Cloned from zigtbase"
+    },
+    {
+      "name": "lu-letsconnect",
+      "description": null
+    },
+    {
+      "name": "zigt-event-drupal",
+      "description": null
+    },
+    {
+      "name": "erasmus-inclusiescan",
+      "description": null
+    },
+    {
+      "name": "zigt-event-nextjs",
+      "description": null
+    },
+    {
+      "name": "platformurbangreening",
+      "description": null
+    },
+    {
+      "name": "WSGO",
+      "description": null
+    },
+    {
+      "name": "nfu",
+      "description": null
+    },
+    {
+      "name": "digigids",
+      "description": "Drupal Digigids website of Stowa and Rijkswaterstaat"
+    },
+    {
+      "name": "front-end-docs",
+      "description": null
+    },
+    {
+      "name": "KeyTalk",
+      "description": null
+    },
+    {
+      "name": "hespace-children",
+      "description": "Drupal based HE Space Children Foundation"
+    },
+    {
+      "name": "GGG",
+      "description": "Gemeentelijke Gezinsaanpak Geletterdheid"
+    },
+    {
+      "name": "zigt-nl",
+      "description": null
+    },
+    {
+      "name": "wiki-noodmaatregelen",
+      "description": "Wiki Noodmaatregelen van Stowa"
+    },
+    {
+      "name": "beebop",
+      "description": null
+    },
+    {
+      "name": "Basisvaardigheden",
+      "description": "Website van Expertisepunt Basisvaardigheden"
+    },
+    {
+      "name": "erasmus-flowcharttool",
+      "description": "erasmus+ flowcharttool react"
+    },
+    {
+      "name": "digitaal-samenleven",
+      "description": null
+    },
+    {
+      "name": "lu-careerzone",
+      "description": null
+    },
+    {
+      "name": "Snippets",
+      "description": "A place to place all your snippets"
+    },
+    {
+      "name": "lu-hortus",
+      "description": null
+    },
+    {
+      "name": "dijkring",
+      "description": null
+    },
+    {
+      "name": "groei",
+      "description": null
+    },
+    {
+      "name": "lu-careerplatform",
+      "description": null
+    },
+    {
+      "name": "handtekening-zigt",
+      "description": null
+    },
+    {
+      "name": "waar-is-waldo",
+      "description": null
+    },
+    {
+      "name": "Mailbridge",
+      "description": "Automation for scraping the mailbox and placing files in a folder"
+    },
+    {
+      "name": "github-migratietool",
+      "description": null
+    },
+    {
+      "name": "informatiepuntdigitaleoverheid",
+      "description": null
+    },
+    {
+      "name": "4dmc",
+      "description": "4dmc -- 4DMC -- Migrated from BitBucket"
+    },
+    {
+      "name": "abroadint",
+      "description": "abroadint -- Abroad Internships -- Migrated from BitBucket"
+    },
+    {
+      "name": "veehandel",
+      "description": "veehandel -- Vee&Logistiek; Nederland -- Migrated from BitBucket"
+    },
+    {
+      "name": "tvhl",
+      "description": "tvhl -- Stichting Lezen en Schrijven -- Migrated from BitBucket"
+    },
+    {
+      "name": "Erasmusplus-research",
+      "description": "Erasmusplus Impact -- Erasmus+ -- Migrated from BitBucket"
+    },
+    {
+      "name": "createdfirst",
+      "description": "createdfirst -- Intern -- Migrated from BitBucket"
+    },
+    {
+      "name": "sumarchitecten",
+      "description": "sumarchitecten -- SUM Architecten B.V. -- Migrated from BitBucket"
+    },
+    {
+      "name": "veiligheidsregio",
+      "description": "veiligheidsregio -- Veiligheidsregio NHN -- Migrated from BitBucket"
+    },
+    {
+      "name": "energy-incentives",
+      "description": "energy -- Energy -- Migrated from BitBucket"
+    },
+    {
+      "name": "veelogistiek",
+      "description": "veelogistiek -- Vee&Logistiek; Nederland -- Migrated from BitBucket"
+    },
+    {
+      "name": "toolbox",
+      "description": "toolbox -- Energie- & Grondstoffenfabriek -- Migrated from BitBucket"
+    },
+    {
+      "name": "teamintro",
+      "description": "teamintro -- Intro Uitzendbureau -- Migrated from BitBucket"
+    },
+    {
+      "name": "ats-teamintro",
+      "description": "ats-teamintro -- Intro Uitzendbureau -- Migrated from BitBucket"
+    },
+    {
+      "name": "bimie",
+      "description": "bimie -- Bouwen met staal -- Migrated from BitBucket"
+    },
+    {
+      "name": "banas-outdated-download-latest-from-live",
+      "description": "banas -- Uitgeverij Educatief -- Migrated from BitBucket"
+    },
+    {
+      "name": "educatief-outdated-download-latest-from-live",
+      "description": "educatief -- Uitgeverij Educatief -- Migrated from BitBucket"
+    },
+    {
+      "name": "AIB",
+      "description": "AIB -- AIB -- Migrated from BitBucket"
+    },
+    {
+      "name": "platformurbangreening-signature",
+      "description": null
+    },
+    {
+      "name": "walker-signaturetool",
+      "description": null
+    },
+    {
+      "name": "digihulp",
+      "description": null
+    },
+    {
+      "name": "atskool",
+      "description": "atskool -- Abroad Internships -- Migrated from BitBucket"
+    },
+    {
+      "name": "ADG-beheer",
+      "description": "ADG beheer -- ADG beheer -- Migrated from BitBucket"
+    },
+    {
+      "name": "PULL-FROM-LIVE-binkkinderopvang-ee",
+      "description": "binkkinderopvang -- Binkkinderopvang -- Migrated from BitBucket"
+    },
+    {
+      "name": "bouwenmetstaal-ee",
+      "description": "Bouwenmetstaal -- Bouwen met staal -- Migrated from BitBucket"
+    },
+    {
+      "name": "vakblad",
+      "description": "vakblad -- Bouwen met staal -- Migrated from BitBucket"
+    },
+    {
+      "name": "staalprijs",
+      "description": "staalprijs -- Bouwen met staal -- Migrated from BitBucket"
+    },
+    {
+      "name": "Overval-Waarschuwing-Systeem",
+      "description": "Overval Waarschuwing Systeem -- CBL -- Migrated from BitBucket"
+    },
+    {
+      "name": "kennismakendenhaag",
+      "description": "citydeal -- City Deals Den Haag -- Migrated from BitBucket"
+    },
+    {
+      "name": "CZO-Jaarverslagen",
+      "description": "CZO Jaarverslagen -- College Zorgopleidingen -- Migrated from BitBucket"
+    },
+    {
+      "name": "zelfevaluatiescan",
+      "description": "zelfevaluatiescan -- Cultuur+Ondernemen -- Migrated from BitBucket"
+    },
+    {
+      "name": "Daelmans-campagnesite",
+      "description": "Daelmans-campagnesite -- Daelmans -- Migrated from BitBucket"
+    },
+    {
+      "name": "dcteikyo",
+      "description": "dcteikyo -- DC Klinieken -- Migrated from BitBucket"
+    },
+    {
+      "name": "De-Driemaster",
+      "description": "De Driemaster -- De Driemaster -- Migrated from BitBucket"
+    },
+    {
+      "name": "lato",
+      "description": "lato -- De Leidse Aanpak -- Migrated from BitBucket"
+    },
+    {
+      "name": "deruiter",
+      "description": "deruiter -- De Ruiter -- Migrated from BitBucket"
+    },
+    {
+      "name": "deheer",
+      "description": "deheer -- deheer -- Migrated from BitBucket"
+    },
+    {
+      "name": "delfland",
+      "description": "delfland -- Delfland -- Migrated from BitBucket"
+    },
+    {
+      "name": "dpkatwijk",
+      "description": "dpkatwijk -- Digitaal Plein Katwijk -- Migrated from BitBucket"
+    },
+    {
+      "name": "isis",
+      "description": "isis -- EE4 -- Migrated from BitBucket"
+    },
+    {
+      "name": "efgf-EE",
+      "description": "efgf -- Energie- & Grondstoffenfabriek -- Migrated from BitBucket"
+    },
+    {
+      "name": "waterefgf",
+      "description": "waterefgf -- Energie- & Grondstoffenfabriek -- Migrated from BitBucket"
+    },
+    {
+      "name": "denengelsen",
+      "description": "denengelsen -- Engelsen -- Migrated from BitBucket"
+    },
+    {
+      "name": "EOP-ToP-app",
+      "description": "EOP ToP app -- EOP -- Migrated from BitBucket"
+    },
+    {
+      "name": "epsconsult",
+      "description": "epsconsult -- EPS Consultancy -- Migrated from BitBucket"
+    },
+    {
+      "name": "erasmusplus",
+      "description": "erasmusplus -- Erasmus+ -- Migrated from BitBucket"
+    },
+    {
+      "name": "Erasmusplus-subsdiewijzer",
+      "description": "Erasmusplus subsdiewijzer -- Erasmus+ -- Migrated from BitBucket"
+    },
+    {
+      "name": "Travel-Clinic",
+      "description": "Travel Clinic -- Erasmus-MC -- Migrated from BitBucket"
+    },
+    {
+      "name": "euroschol",
+      "description": "euroschol -- Euroscholars -- Migrated from BitBucket"
+    },
+    {
+      "name": "extech",
+      "description": "extech -- Excellentflex -- Migrated from BitBucket"
+    },
+    {
+      "name": "exsearch",
+      "description": "exsearch -- Excellentflex -- Migrated from BitBucket"
+    },
+    {
+      "name": "excellentflex",
+      "description": "excellentflex -- Excellentflex -- Migrated from BitBucket"
+    },
+    {
+      "name": "nobel-ee",
+      "description": "nobel -- Gebr. De Nobel -- Migrated from BitBucket"
+    },
+    {
+      "name": "groei150jaar",
+      "description": "groei150jaar -- Groei & Bloei -- Migrated from BitBucket"
+    },
+    {
+      "name": "handson",
+      "description": "handson -- Hands on -- Migrated from BitBucket"
+    },
+    {
+      "name": "hespace-intranet",
+      "description": "hespace-intranet -- HE Space -- Migrated from BitBucket"
+    },
+    {
+      "name": "hescf-expressionengine",
+      "description": "hescf -- HE Space -- Migrated from BitBucket"
+    },
+    {
+      "name": "heilema",
+      "description": "heilema -- Heilema -- Migrated from BitBucket"
+    },
+    {
+      "name": "iTLC",
+      "description": "iTLC -- Hogeschool van Amsterdam -- Migrated from BitBucket"
+    },
+    {
+      "name": "hvrc",
+      "description": "hvrc -- Hoogheemraadschap van Rijnland -- Migrated from BitBucket"
+    },
+    {
+      "name": "hhr",
+      "description": "hhr -- Hoogheemraadschap van Rijnland -- Migrated from BitBucket"
+    },
+    {
+      "name": "Waterbeheerplan",
+      "description": "Waterbeheerplan -- Hoogheemraadschap van Schieland -- Migrated from BitBucket"
+    },
+    {
+      "name": "onzetaal",
+      "description": "onzetaal -- Onze Taal -- Migrated from BitBucket"
+    },
+    {
+      "name": "PULL-FROM-LIVE-WerkenbijBink",
+      "description": "WerkenbijBink -- Binkkinderopvang -- Migrated from BitBucket"
+    },
+    {
+      "name": "zigt-Kerst",
+      "description": null
+    },
+    {
+      "name": "Toyota-demo",
+      "description": null
+    },
+    {
+      "name": "giftmatchis",
+      "description": "giftmatchis -- Stichting Matchis -- Migrated from BitBucket"
+    },
+    {
+      "name": "formmatchis",
+      "description": "formmatchis -- Stichting Matchis -- Migrated from BitBucket"
+    },
+    {
+      "name": "portalmatchis",
+      "description": "portalmatchis -- Stichting Matchis -- Migrated from BitBucket"
+    },
+    {
+      "name": "Fysius",
+      "description": null
+    },
+    {
+      "name": "createdfirst_be",
+      "description": "createdfirst_be -- Intern -- Migrated from BitBucket"
+    },
+    {
+      "name": "leiden2022",
+      "description": "leiden2022 -- Leiden2022 -- Migrated from BitBucket"
+    },
+    {
+      "name": "polder2c",
+      "description": "polder2c -- Polder2C's -- Migrated from BitBucket"
+    },
+    {
+      "name": "apimatchis",
+      "description": "apimatchis -- Stichting Matchis -- Migrated from BitBucket"
+    },
+    {
+      "name": "matchis",
+      "description": "matchis -- Stichting Matchis -- Migrated from BitBucket"
+    },
+    {
+      "name": "zorgapp",
+      "description": "zorgapp -- Zorg en Zekerheid -- Migrated from BitBucket"
+    },
+    {
+      "name": "vinkbouw",
+      "description": "vinkbouw -- Vinkbouw -- Migrated from BitBucket"
+    },
+    {
+      "name": "Klimaatkrachtig",
+      "description": "Klimaatkrachtig -- Klimaatkrachtig -- Migrated from BitBucket"
+    },
+    {
+      "name": "couperus",
+      "description": "couperus -- Louis Couperus -- Migrated from BitBucket"
+    },
+    {
+      "name": "Runningblind",
+      "description": "Runningblind -- Runningblind -- Migrated from BitBucket"
+    },
+    {
+      "name": "binkkinderopvang",
+      "description": null
+    },
+    {
+      "name": "een-prik-zo-gepiept",
+      "description": null
+    },
+    {
+      "name": "cjg-rijnmond",
+      "description": null
+    },
+    {
+      "name": "cjg-rijnmond-app",
+      "description": "cjg-rijnmond-webapplicatie-bibliotheek -- CJG Rijnmond -- Migrated from BitBucket"
+    },
+    {
+      "name": "zpw",
+      "description": "zpw -- ZPW -- Migrated from BitBucket"
+    },
+    {
+      "name": "leerlijn",
+      "description": "leerlijn -- Universiteit Leiden -- Migrated from BitBucket"
+    },
+    {
+      "name": "vmat",
+      "description": "vmat -- van Manen -- Migrated from BitBucket"
+    },
+    {
+      "name": "Air-Law",
+      "description": "Air Law -- Universiteit Leiden -- Migrated from BitBucket"
+    },
+    {
+      "name": "UniKidz",
+      "description": "UniKidz -- UniKidz -- Migrated from BitBucket"
+    },
+    {
+      "name": "worldos",
+      "description": "worldos -- World of Steel -- Migrated from BitBucket"
+    },
+    {
+      "name": "Onsaanbod",
+      "description": "Wilbrink -- Wilbrink -- Migrated from BitBucket"
+    },
+    {
+      "name": "Startpunt",
+      "description": "Startpunt -- Stichting Lezen en Schrijven -- Migrated from BitBucket"
+    },
+    {
+      "name": "wvda",
+      "description": "wvda -- Stichting Lezen en Schrijven -- Migrated from BitBucket"
+    },
+    {
+      "name": "digitalspeedreading",
+      "description": null
+    },
+    {
+      "name": "ScreeninC",
+      "description": "ScreeninC -- ScreeninC -- Migrated from BitBucket"
+    },
+    {
+      "name": "Kennis-Impuls-Water-Kwaliteit",
+      "description": "Kennis Impuls Water Kwaliteit -- Stowa -- Migrated from BitBucket"
+    },
+    {
+      "name": "waterbazen",
+      "description": "waterbazen -- Waterbazencheck -- Migrated from BitBucket"
+    },
+    {
+      "name": "watnuwijzer",
+      "description": "watnuwijzer -- Watnuwijzer -- Migrated from BitBucket"
+    },
+    {
+      "name": "meerwonen",
+      "description": "meerwonen -- Woningbouwvereniging Alkemade -- Migrated from BitBucket"
+    },
+    {
+      "name": "zorgbelang",
+      "description": "zorgbelang -- Zorgbelang Zuid Holland -- Migrated from BitBucket"
+    },
+    {
+      "name": "vwvw",
+      "description": "vwvw -- Vereniging werken voor watersc -- Migrated from BitBucket"
+    },
+    {
+      "name": "wbp6",
+      "description": "wbp6 -- Vereniging werken voor watersc -- Migrated from BitBucket"
+    },
+    {
+      "name": "pstheater",
+      "description": "pstheater -- PS Theater -- Migrated from BitBucket"
+    },
+    {
+      "name": "Planetarium",
+      "description": "Planetarium -- Planetarium -- Migrated from BitBucket"
+    },
+    {
+      "name": "MarginPar",
+      "description": "MarginPar -- MarginPar -- Migrated from BitBucket"
+    },
+    {
+      "name": "Meerlanden",
+      "description": "Meerlanden -- Meerlanden -- Migrated from BitBucket"
+    },
+    {
+      "name": "meergroenewarmte",
+      "description": "meergroenewarmte -- Meerlanden -- Migrated from BitBucket"
+    },
+    {
+      "name": "motifade",
+      "description": "motifade -- Motifade -- Migrated from BitBucket"
+    },
+    {
+      "name": "nationalestaalprijs",
+      "description": "nationalestaalprijs -- Nationale staalprijs -- Migrated from BitBucket"
+    },
+    {
+      "name": "nvbt",
+      "description": "nvbt -- Nederlandse Vereniging van Botanische Tuinen -- Migrated from BitBucket"
+    },
+    {
+      "name": "Voor-het-leven-van-morgen",
+      "description": "Voor het leven van morgen -- NFU -- Migrated from BitBucket"
+    },
+    {
+      "name": "spellingsite",
+      "description": "spellingsite -- Onze Taal -- Migrated from BitBucket"
+    },
+    {
+      "name": "ZIGT-customer-portal-Frontend",
+      "description": "reportingtool-frontend -- Reportingtool / Portal -- Migrated from BitBucket"
+    },
+    {
+      "name": "ZIGT-customer-portal-API",
+      "description": "reportingtool-api -- Reportingtool / Portal -- Migrated from BitBucket"
+    },
+    {
+      "name": "ZIGT-customer-portal-CMS",
+      "description": "reportingtool-backend -- Reportingtool / Portal -- Migrated from BitBucket"
+    },
+    {
+      "name": "zigt-werklijsten",
+      "description": null
+    },
+    {
+      "name": "he-space",
+      "description": null
+    },
+    {
+      "name": "NPLG",
+      "description": null
+    },
+    {
+      "name": "Handreiking-Grasbekleding",
+      "description": null
+    },
+    {
+      "name": "RijnlandsLyceum",
+      "description": "RijnlandsLyceum -- Stichting Het Rijnlands Lyceum -- Migrated from BitBucket"
+    },
+    {
+      "name": "rijnland",
+      "description": "rijnland -- Stichting Het Rijnlands Lyceum -- Migrated from BitBucket"
+    },
+    {
+      "name": "Stowa",
+      "description": "Stowa -- Stowa -- Migrated from BitBucket"
+    },
+    {
+      "name": "Centrient",
+      "description": "Centrient -- Centrient -- Migrated from BitBucket"
+    },
+    {
+      "name": "etwinning",
+      "description": null
+    },
+    {
+      "name": "hhsk",
+      "description": "hhsk -- Hoogheemraadschap van Schieland -- Migrated from BitBucket"
+    },
+    {
+      "name": "houweling",
+      "description": "houweling -- Houweling -- Migrated from BitBucket"
+    },
+    {
+      "name": "Est-Digital",
+      "description": "Est Digital -- Intern -- Migrated from BitBucket"
+    },
+    {
+      "name": "icw",
+      "description": "icw -- Intern -- Migrated from BitBucket"
+    },
+    {
+      "name": "globalww2",
+      "description": "globalww2 -- Intern -- Migrated from BitBucket"
+    },
+    {
+      "name": "kaarls",
+      "description": "kaarls -- Kaarls Strafrechtadvocaten -- Migrated from BitBucket"
+    },
+    {
+      "name": "knooppunt",
+      "description": "knooppunt -- Knooppunt -- Migrated from BitBucket"
+    },
+    {
+      "name": "lumc-campagne",
+      "description": "lumc-campagne -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "lumconcologie",
+      "description": "lumconcologie -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "lumchealth",
+      "description": "lumchealth -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "lumcregen",
+      "description": "lumcregen -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "lumcbeleid",
+      "description": "lumcbeleid -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "LUMC-Device-tool",
+      "description": "LUMC Device tool -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "lumc-portal",
+      "description": "lumc-portal -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "clicksend",
+      "description": "clicksend -- Open source -- Migrated from BitBucket"
+    },
+    {
+      "name": "idin",
+      "description": "idin -- Open source -- Migrated from BitBucket"
+    },
+    {
+      "name": "opmeer",
+      "description": "opmeer -- Opmeer BV -- Migrated from BitBucket"
+    },
+    {
+      "name": "pharming",
+      "description": "pharming -- Pharming -- Migrated from BitBucket"
+    },
+    {
+      "name": "Scope-Scholen",
+      "description": "Scope Scholen -- Scopescholen -- Migrated from BitBucket"
+    },
+    {
+      "name": "SolidCorps",
+      "description": "SolidCorps -- SolidCorps -- Migrated from BitBucket"
+    },
+    {
+      "name": "Gymnasium",
+      "description": "Gymnasium -- Stedelijk Gymnasium -- Migrated from BitBucket"
+    },
+    {
+      "name": "basismeters",
+      "description": "basismeters -- Stichting Lezen en Schrijven -- Migrated from BitBucket"
+    },
+    {
+      "name": "GIL",
+      "description": "GIL -- Studio Eric Dietz -- Migrated from BitBucket"
+    },
+    {
+      "name": "expeditiefit",
+      "description": "expeditiefit -- Studio Eric Dietz -- Migrated from BitBucket"
+    },
+    {
+      "name": "supermarkt",
+      "description": "supermarkt -- supermarkt -- Migrated from BitBucket"
+    },
+    {
+      "name": "synvest",
+      "description": "synvest -- SynVest -- Migrated from BitBucket"
+    },
+    {
+      "name": "mrcasino",
+      "description": "mrcasino -- Two Kings Consultants -- Migrated from BitBucket"
+    },
+    {
+      "name": "loterijman",
+      "description": "loterijman -- Two Kings Consultants -- Migrated from BitBucket"
+    },
+    {
+      "name": "raf",
+      "description": "raf -- Universiteit Leiden -- Migrated from BitBucket"
+    },
+    {
+      "name": "VarmX",
+      "description": "VarmX -- VarmX -- Migrated from BitBucket"
+    },
+    {
+      "name": "startsmart",
+      "description": "startsmart -- Vinkbouw -- Migrated from BitBucket"
+    },
+    {
+      "name": "Vereniging-van-Nederlandse-Kunsthistorici",
+      "description": "VNLK -- VNLK -- Migrated from BitBucket"
+    },
+    {
+      "name": "Sexy-safe",
+      "description": "Sexy & safe -- Sexy&Safe -- Migrated from BitBucket"
+    },
+    {
+      "name": "lezenenschrijven",
+      "description": "lezenenschrijven -- Stichting Lezen en Schrijven -- Migrated from BitBucket"
+    },
+    {
+      "name": "lumc-infographic",
+      "description": "lumc-infographic -- Leids Universitair Medisch Centrum -- Migrated from BitBucket"
+    },
+    {
+      "name": "MLS",
+      "description": "Maastricht Logistics Services"
+    },
+    {
+      "name": "CZO",
+      "description": "College Zorgopleidingen -- College Zorgopleidingen -- Migrated from BitBucket"
+    },
+    {
+      "name": "scrollsparkjs",
+      "description": null
+    },
+    {
+      "name": "craftbase",
+      "description": "A template repository for new craft projects with NextJS frontend"
+    },
+    {
+      "name": "werkenbij-cjgr",
+      "description": "Werken bij website van Centrum voor Jeugd en Gezin, regio Rijnmond. Koppeling met AFAS"
+    },
+    {
+      "name": "airpassenger",
+      "description": null
+    },
+    {
+      "name": "Oneindig-Online",
+      "description": null
+    },
+    {
+      "name": "Dynamisch-Kustbeheer",
+      "description": "Stowa"
+    },
+    {
+      "name": "demo-repository",
+      "description": "A code repository designed to show the best GitHub has to offer."
+    },
+    {
+      "name": "mls-signaturetool",
+      "description": null
+    },
+    {
+      "name": "munnikvvebeheer",
+      "description": null
+    },
+    {
+      "name": "docs",
+      "description": "Documentatie en snippets"
+    },
+    {
+      "name": ".github-private",
+      "description": null
+    },
+    {
+      "name": "marginparfoundation",
+      "description": null
+    },
+    {
+      "name": "vaccinaties-cjgr",
+      "description": "Vaccinaties website van Centrum voor Jeugd en Gezin, regio Rijnmond."
+    },
+    {
+      "name": "vinkbouw-drupal",
+      "description": null
+    },
+    {
+      "name": "jaarverslag-cjgr",
+      "description": "Jaarverslag website van CJG Rijnmond"
+    },
+    {
+      "name": "Nobel",
+      "description": "Nobel poppodium Leiden"
+    },
+    {
+      "name": "theologie",
+      "description": null
+    },
+    {
+      "name": "EFGF",
+      "description": "Updated Drupal version of EFGF website (original is efgf-EE)"
+    },
+    {
+      "name": "Kortlangstichting",
+      "description": null
+    },
+    {
+      "name": "corporate-cjgr",
+      "description": "Corporate website CJG Rijnmond"
+    },
+    {
+      "name": "bouwenmetstaal",
+      "description": null
+    },
+    {
+      "name": "lowcarbonfarming",
+      "description": null
+    },
+    {
+      "name": "matchis-drupal",
+      "description": null
+    },
+    {
+      "name": "matchis-new",
+      "description": null
+    },
+    {
+      "name": "aanmelden-matchis",
+      "description": null
+    },
+    {
+      "name": "CoastalKring",
+      "description": null
+    }
+  ]
+}
