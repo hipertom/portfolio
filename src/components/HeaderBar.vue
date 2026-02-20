@@ -1,3 +1,7 @@
+<script setup>
+import SocialIcons from "./SocialIcons.vue";
+</script>
+
 <template>
   <header class="absolute left-0 right-0 top-0 z-[2] w-full bg-transparent py-2.5">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-4">
@@ -24,7 +28,3 @@
     </nav>
   </header>
 </template>
-
-<script setup>
-import SocialIcons from "./SocialIcons.vue";
-</script>

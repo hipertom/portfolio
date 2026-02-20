@@ -1,3 +1,23 @@
+<script setup>
+import { computed } from "vue";
+
+const colorOptions = [
+  "bg-cyan",
+  "bg-pastel-green",
+  "bg-pastel-blue",
+  "bg-cotton-candy",
+  "bg-light-peach",
+];
+const rng = Math.floor(Math.random() * colorOptions.length);
+const colorClass = colorOptions[rng];
+
+const props = defineProps(["project"]);
+
+const landscapeImage = computed(
+  () => props.project.image.width > props.project.image.height
+);
+</script>
+
 <template>
   <div
     class="project-card mb-16 w-full sm:w-1/2 lg:w-1/3"
@@ -21,30 +41,6 @@
     <p class="lead">{{ project.desc }}</p>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    const colorOptions = [
-      "bg-cyan",
-      "bg-pastel-green",
-      "bg-pastel-blue",
-      "bg-cotton-candy",
-      "bg-light-peach",
-    ];
-    const rng = Math.floor(Math.random() * colorOptions.length);
-    return {
-      colorClass: colorOptions[rng],
-    };
-  },
-  props: ["project"],
-  computed: {
-    landscapeImage() {
-      return this.project.image.width > this.project.image.height;
-    },
-  },
-};
-</script>
 
 <style scoped>
 .project-figure {

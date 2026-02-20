@@ -1,3 +1,14 @@
+<script setup>
+import SvgIcon from "@jamescoyle/vue-icon";
+import { mdiInstagram, mdiGithub, mdiLinkedin } from "@mdi/js";
+
+const socials = [
+  { icon: mdiGithub, url: "https://asd.com" },
+  { icon: mdiLinkedin, url: "https://asd.com" },
+  { icon: mdiInstagram, url: "https://asd.com" },
+];
+</script>
+
 <template>
   <nav class="social-nav">
     <ul class="flex list-none gap-2.5 p-0">
@@ -13,17 +24,6 @@
     </ul>
   </nav>
 </template>
-
-<script setup>
-import SvgIcon from "@jamescoyle/vue-icon";
-import { mdiInstagram, mdiGithub, mdiLinkedin } from "@mdi/js";
-
-const socials = [
-  { icon: mdiGithub, url: "https://asd.com" },
-  { icon: mdiLinkedin, url: "https://asd.com" },
-  { icon: mdiInstagram, url: "https://asd.com" },
-];
-</script>
 
 <style scoped>
 .social-link :deep(svg path) {

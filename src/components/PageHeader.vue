@@ -1,3 +1,7 @@
+<script setup>
+import HeroSvgs from "@/assets/HeroSvgs.vue";
+</script>
+
 <template>
   <div class="w-full">
     <div class="flex">
@@ -21,10 +25,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import HeroSvgs from "@/assets/HeroSvgs.vue";
-</script>
 
 <style scoped>
 /* Right column SVG overflow - design intent */
