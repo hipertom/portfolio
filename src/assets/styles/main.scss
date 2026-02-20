@@ -1,6 +1,6 @@
-@import "./_globals/variables.scss";
-@import "base.scss";
-@import "typography.scss";
+@use "_globals/variables" as *;
+@use "base";
+@use "typography";
 
 figure {
   img {
