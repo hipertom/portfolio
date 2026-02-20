@@ -1,11 +1,11 @@
 <template>
-  <div class="container project-list" id="projects">
-    <div class="row">
-      <div class="col-12">
-        <h2>Selected works</h2>
+  <div class="project-list mx-auto max-w-7xl px-4 pt-20" id="projects">
+    <div class="flex flex-wrap">
+      <div class="w-full">
+        <h2 class="pb-12">Selected works</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="flex flex-wrap gap-x-4">
       <ProjectCard
         v-for="(project, index) in projects"
         :project="project"
@@ -30,7 +30,7 @@ export default {
     this.projects = await this.getProjects();
   },
   methods: {
-    getProjects: async () => {
+    async getProjects() {
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${
         import.meta.env.VITE_CONTENTFUL_SPACE_ID
       }`;
@@ -45,8 +45,8 @@ export default {
         body: JSON.stringify({ query: projectsQuery }),
       };
       try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
-          response.json()
+        const response = await fetch(fetchUrl, fetchOptions).then((res) =>
+          res.json()
         );
         return response.data.projectCollection.items;
       } catch (error) {
@@ -57,13 +57,3 @@ export default {
   components: { ProjectCard },
 };
 </script>
-
-<style lang="scss">
-.project-list {
-  margin-top: 80px;
-
-  h2 {
-    padding-bottom: 48px;
-  }
-}
-</style>

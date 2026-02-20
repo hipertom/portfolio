@@ -1,27 +1,14 @@
 <template>
-  <footer>
-    <div class="container">
-      <div class="d-flex flex-row justify-content-between">
-        <div class="align-self-center">logo</div>
-        <div class="align-self-center">
-          &copy; 2022-{{ year }} Tom Grootjans. All rights reserved
-        </div>
-        <div class="align-self-center">
-          <SocialIcons />
-        </div>
+  <footer class="bg-secondary py-2.5 text-muted">
+    <div class="mx-auto flex max-w-7xl flex-row items-center justify-between px-4">
+      <div>logo</div>
+      <div>&copy; 2022-{{ year }} Tom Grootjans. All rights reserved</div>
+      <div>
+        <SocialIcons />
       </div>
     </div>
   </footer>
 </template>
-
-<style lang="scss">
-footer {
-  color: $secondary-font-color;
-  background-color: $secondary-color;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-</style>
 
 <script setup>
 import SocialIcons from "./SocialIcons.vue";

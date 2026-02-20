@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #18191f;
+  --color-secondary: #0b0d17;
+  --color-muted: #d9dbe1;
+  --color-cyan: #a0dcff;
+  --color-pastel-green: #c1e5c0;
+  --color-pastel-blue: #c0dae5;
+  --color-cotton-candy: #ffc3d8;
+  --color-light-peach: #fdd9d9;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-base font-normal leading-[26px] text-primary antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-left tracking-normal;
+  }
+
+  h1 {
+    @apply text-[72px] font-extrabold leading-[98px];
+  }
+
+  h2 {
+    @apply text-5xl font-extrabold leading-[64px];
+  }
+
+  h3 {
+    @apply text-[40px] font-extrabold leading-[54px];
+  }
+
+  h4 {
+    @apply text-[28px] font-extrabold leading-10;
+  }
+
+  h5 {
+    @apply text-2xl font-semibold leading-8;
+  }
+
+  h6 {
+    @apply text-xl font-medium leading-[30px];
+  }
+
+  .lead {
+    @apply text-lg font-normal leading-8;
+  }
+
+  figure img {
+    @apply w-full h-auto;
+  }
+}

@@ -1,8 +1,12 @@
 <template>
   <nav class="social-nav">
-    <ul>
-      <li v-for="(item, index) in socials" :key="index">
-        <a :href="item.url">
+    <ul class="flex list-none gap-2.5 p-0">
+      <li
+        v-for="(item, index) in socials"
+        :key="index"
+        class="inline-block rounded-full bg-white/10 p-1.5"
+      >
+        <a :href="item.url" class="social-link block">
           <SvgIcon type="mdi" :path="item.icon"></SvgIcon>
         </a>
       </li>
@@ -21,42 +25,13 @@ const socials = [
 ];
 </script>
 
-<style lang="scss">
-.social-nav {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-
-    li {
-      display: inline-block;
-      border-radius: 50%;
-      background-color: rgba($color: #fff, $alpha: 0.1);
-      padding: 5px;
-      margin-left: 10px;
-    }
-  }
-
-  a {
-    &:link,
-    &:visited {
-      svg {
-        path {
-          transition: fill 0.1s linear;
-          fill: $secondary-font-color;
-        }
-      }
-    }
-
-    &:hover,
-    &:active {
-      background-color: none;
-      svg {
-        path {
-          fill: #fff;
-        }
-      }
-    }
-  }
+<style scoped>
+.social-link :deep(svg path) {
+  fill: var(--color-muted);
+  transition: fill 0.1s linear;
+}
+.social-link:hover :deep(svg path),
+.social-link:active :deep(svg path) {
+  fill: #fff;
 }
 </style>
