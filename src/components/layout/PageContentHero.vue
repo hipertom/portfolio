@@ -1,23 +1,8 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import SocialIcons from "./../elements/SocialIcons.vue"
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCakeCandles, faEarthEurope, faLanguage, faLocationDot } from '@fortawesome/free-solid-svg-icons'
-
-let intros = [
-  "They say the best things in life happen behind the scenes. Well, I'm the one behind the scenes building the APIs and databases that power your favorite apps. Want to peek under the hood?",
-  "I'm a backend developer. Yes, I can talk to computers. No, I can't explain why your printer keeps eating your documents. But hey, at least your website will run smoothly!",
-  "They say caffeine and coding go hand in hand. Well, I'm here to prove that with a little bit of skill, you can spill less coffee than you write bugs. Let's see my projects, shall we?",
-  "Enter at your own risk.  I'm a developer, and while my code usually works, there's always a chance you'll witness a glorious logic error.  See my portfolio for proof (hopefully with more successes than fails).",
-  "Turning ideas into reality, one line of code at a time. Dive into my portfolio to see my projects!",
-]
-let randomIntro = ref(rand(null, intros.length))
-
-// Get random index that is not the same as previous.
-function rand(previous, range) {
-  let temp = Math.floor(Math.random() * range)
-  return temp == previous ? rand(previous, range) : temp
-}
 
 const age = computed(() => {
   var ageDifMs = Date.now() - new Date("1994-07-06").getTime();
@@ -40,14 +25,23 @@ const age = computed(() => {
               <div class="personal_text">
                 <h6>Hello, I am</h6>
                 <h3>Tom Grootjans</h3>
-                <h4>Backend developer</h4>
-                <p>{{ intros[randomIntro] }}</p>
+                <h4>Software Engineer</h4>
+                <p>Enter at your own risk. I'm a developer, and while my code usually works, there's always a chance
+                  you'll witness a glorious error.</p>
 
                 <ul class="list basic_info">
-                  <li><span style="width: 25px; display: inline-block;"><FontAwesomeIcon :icon="faCakeCandles" /></span> {{ age }} years old</li>
-                  <li><span style="width: 25px; display: inline-block;"><FontAwesomeIcon :icon="faLocationDot" /></span> Zoetermeer</li>
-                  <li><span style="width: 25px; display: inline-block;"><FontAwesomeIcon :icon="faEarthEurope" /></span> The Netherlands</li>
-                  <li><span style="width: 25px; display: inline-block;"><FontAwesomeIcon :icon="faLanguage" /></span> Dutch & English</li>
+                  <li><span style="width: 25px; display: inline-block;">
+                      <FontAwesomeIcon :icon="faCakeCandles" />
+                    </span> {{ age }} years old</li>
+                  <li><span style="width: 25px; display: inline-block;">
+                      <FontAwesomeIcon :icon="faLocationDot" />
+                    </span> Zoetermeer</li>
+                  <li><span style="width: 25px; display: inline-block;">
+                      <FontAwesomeIcon :icon="faEarthEurope" />
+                    </span> The Netherlands</li>
+                  <li><span style="width: 25px; display: inline-block;">
+                      <FontAwesomeIcon :icon="faLanguage" />
+                    </span> Dutch & English</li>
                 </ul>
 
                 <SocialIcons />
