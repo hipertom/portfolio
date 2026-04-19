@@ -12,9 +12,7 @@ export const store = reactive({
   filterProjects(tag) {
     this.filterValue = tag
     this.projects.filteredData = this.projects.data.filter(function (project) {
-      return (project.metadata.tags[0] && project.metadata.tags[0].sys.id == tag) || tag == '*'
+      return project.tag === tag || tag === '*'
     });
   }
-
-
 })

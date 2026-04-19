@@ -1,4 +1,4 @@
-<script setup>
+œ<script setup>
 import { ref, onMounted } from 'vue'
 import { store } from '@/store.js'
 import ProjectItem from '../elements/ProjectItem.vue';
@@ -42,7 +42,7 @@ function increaseProjectLimit() {
       <template v-else-if="store.projects.filteredData">
         <TransitionGroup name="list" tag="div" class="row">
 
-          <template v-for="(project) in store.projects.filteredData.slice(0, projectLimit)" :key="project.sys.id">
+          <template v-for="(project) in store.projects.filteredData.slice(0, projectLimit)" :key="project.id">
             <ProjectItem v-bind="project" />
           </template>
 

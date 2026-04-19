@@ -1,0 +1,50 @@
+[
+  {
+    "id": "project-1",
+    "title": "E-Commerce Platform",
+    "desc": "A full-featured online store built with Laravel and Vue.js, including product management, cart, and payment integration.",
+    "link": "https://example.com/project-1",
+    "tag": "laravel",
+    "image": "project-1.jpg"
+  },
+  {
+    "id": "project-2",
+    "title": "Corporate Website",
+    "desc": "A responsive corporate website built on Drupal with custom modules, multilingual support, and a headless CMS setup.",
+    "link": "https://example.com/project-2",
+    "tag": "drupal",
+    "image": "project-2.jpg"
+  },
+  {
+    "id": "project-3",
+    "title": "Blog Platform",
+    "desc": "A performant blog built on WordPress with a custom theme, SEO optimisation, and REST API integration.",
+    "link": "https://example.com/project-3",
+    "tag": "wordpress",
+    "image": "project-3.jpg"
+  },
+  {
+    "id": "project-4",
+    "title": "REST API Service",
+    "desc": "A RESTful API backend built with Laravel, featuring authentication, rate limiting, and comprehensive API documentation.",
+    "link": "https://example.com/project-4",
+    "tag": "laravel",
+    "image": "project-4.jpg"
+  },
+  {
+    "id": "project-5",
+    "title": "Community Portal",
+    "desc": "A Drupal-powered community portal with user profiles, discussion forums, and event management functionality.",
+    "link": "https://example.com/project-5",
+    "tag": "drupal",
+    "image": "project-5.jpg"
+  },
+  {
+    "id": "project-6",
+    "title": "Portfolio Theme",
+    "desc": "A custom WordPress theme built from scratch with a focus on performance, accessibility, and clean design.",
+    "link": "https://example.com/project-6",
+    "tag": "wordpress",
+    "image": "project-6.jpg"
+  }
+]

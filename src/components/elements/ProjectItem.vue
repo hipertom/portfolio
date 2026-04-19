@@ -1,12 +1,12 @@
 <script setup>
-import { projectImg } from "@/utils.js";
-
 defineProps({
-  metadata: Object,
-  sys: Object,
-  fields: Object,
+  id: String,
+  title: String,
+  desc: String,
+  link: String,
+  tag: String,
+  image: String,
 })
-
 </script>
 
 <template>
@@ -14,13 +14,13 @@ defineProps({
   <div class="project-inner">
     <div class="project-img">
       <figure>
-        <img class="img-fluid" :src="projectImg(sys.id)" alt="">
-        <a class="light" :href="fields.link" target="_blank"><img src="@/assets/img/gallery/icon.png" alt=""></a>
+        <img class="img-fluid" :src="`/src/assets/img/gallery/${image}`" alt="">
+        <a class="light" :href="link" target="_blank"><img src="@/assets/img/gallery/icon.png" alt=""></a>
       </figure>
     </div>
     <div class="project-text">
-      <h4>{{ fields.title }}</h4>
-      <p>{{ fields.desc }}</p>
+      <h4>{{ title }}</h4>
+      <p>{{ desc }}</p>
     </div>
   </div>
 </div>

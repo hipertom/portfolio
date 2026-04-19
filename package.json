@@ -19,7 +19,6 @@
     "@vueuse/components": "^10.9.0",
     "@vueuse/core": "^10.9.0",
     "bootstrap": "^4.6.2",
-    "contentful": "^10.8.5",
     "vue": "^3.4.15"
   },
   "devDependencies": {
