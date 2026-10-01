@@ -1,20 +1,21 @@
 <script setup>
-import PageHeader from './components/layout/PageHeader.vue';
-import PageContent from './components/layout/PageContent.vue';
-import PageFooter from './components/layout/PageFooter.vue';
-
-
-
+import AppHeader from './components/AppHeader.vue'
+import AppHero from './components/AppHero.vue'
+import AppAbout from './components/AppAbout.vue'
+import AppExperience from './components/AppExperience.vue'
+import AppProjects from './components/AppProjects.vue'
+import AppSkills from './components/AppSkills.vue'
+import AppFooter from './components/AppFooter.vue'
 </script>
 
 <template>
-
-  <PageHeader />
-  <PageContent />
-  <PageFooter />
-
+  <div class="min-h-screen bg-[#030a11] overflow-x-hidden">
+    <AppHeader />
+    <AppHero />
+    <AppAbout />
+    <AppExperience />
+    <AppProjects />
+    <AppSkills />
+    <AppFooter />
+  </div>
 </template>
-
-<style scoped>
-
-</style>
