@@ -2,6 +2,7 @@
 import SiteFooter from '@/components/layout/SiteFooter.vue';
 import SiteNav from '@/components/layout/SiteNav.vue';
 import AboutSection from '@/components/sections/AboutSection.vue';
+import ExperienceSection from '@/components/sections/ExperienceSection.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
 import ProjectsSection from '@/components/sections/ProjectsSection.vue';
 import SportSection from '@/components/sections/SportSection.vue';
@@ -20,6 +21,7 @@ import SportSection from '@/components/sections/SportSection.vue';
         <AboutSection />
         <SportSection />
         <ProjectsSection />
+        <ExperienceSection />
     </main>
     <SiteFooter />
 </template>
