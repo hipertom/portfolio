@@ -1,5 +1,20 @@
+<script setup lang="ts">
+import SiteFooter from '@/components/layout/SiteFooter.vue';
+import SiteNav from '@/components/layout/SiteNav.vue';
+</script>
+
 <template>
-    <main class="page-container py-24">
-        <h1 v-reveal class="text-display font-semibold">Tom Grootjans</h1>
+    <a
+        href="#main"
+        class="sr-only z-[60] rounded-full bg-ink px-4 py-2 text-cream focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+    >
+        Skip to content
+    </a>
+    <SiteNav />
+    <main id="main">
+        <section id="top" class="page-container grid min-h-[80vh] place-items-center">
+            <h1 class="text-display font-semibold">Tom Grootjans</h1>
+        </section>
     </main>
+    <SiteFooter />
 </template>
