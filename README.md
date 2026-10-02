@@ -1,59 +1,46 @@
-# Portfolio - Tom Grootjans
+# tomgrootjans.nl
 
-`main` branch: [tomgrootjans.nl](https://tomgrootjans.nl)
-<br>
-`develop` branch: [dev.tomgrootjans.nl](https://dev.tomgrootjans.nl)
+Personal one-pager of Tom Grootjans: who I am, what I do for sport, a few projects and a short CV.
 
-## Tech stack
+Built with Vue 3, TypeScript and Tailwind CSS v4. The site is fully static.
 
-### Frontend
-- VueJS
-- Bootstrap
+## Getting started
 
-### Backend
-- Contentful CMS
-
-### Infrastructure
-- DigitalOcean App Platform | build and deploy
-- Cloudflare Application Security & Performance
-- Cloudflare R2 | Distributed object storage
-- Cloudflare CDN | Content delivery network
-- DigitalOcean Functions | Serverless Computing
-
-### Tools
-- [ScreenshotOne](https://screenshotone.com/docs)
-
-
-
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
+nvm use
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+| Script               | Description                                     |
+| -------------------- | ----------------------------------------------- |
+| `npm run dev`        | Start the Vite dev server                       |
+| `npm run build`      | Type-check and build the static site to `dist/` |
+| `npm run preview`    | Serve the production build locally              |
+| `npm run type-check` | Run `vue-tsc`                                   |
+| `npm run lint`       | Lint and fix with ESLint                        |
+| `npm run format`     | Format `src/` with Prettier                     |
 
-```sh
-npm run build
-```
+## Editing content
 
-### Lint with [ESLint](https://eslint.org/)
+All copy lives in typed data files, so content changes never require touching components:
 
-```sh
-npm run lint
-```
+- `src/data/profile.ts`: name, intro, bio, interests and the optional about photo
+- `src/data/projects.ts`: highlighted projects (`work`, `personal` or `sport`)
+- `src/data/experience.ts`: CV entries, newest first, `endDate: null` for the current job
+- `src/data/socialLinks.ts`: links in the hero and footer
+
+Design tokens (colours, fonts, type scale, shadows) are defined in `src/assets/css/main.css`.
+
+## Strava
+
+The sport section reads a `SportOverview` (see `src/types/sport.ts`) through a `SportOverviewProvider`.
+For now `src/services/sport/index.ts` uses dummy data from `src/data/dummySportOverview.ts`.
+
+Strava credentials must never reach the browser. The plan is a small serverless function (DigitalOcean Functions)
+that exchanges the refresh token, fetches recent activities, calculates the totals and returns a `SportOverview`.
+Connecting it means adding an HTTP provider and swapping it in `src/services/sport/index.ts`.
+
+## Deployment
+
+Hosted as a static site on DigitalOcean App Platform. Build command `npm run build`, output directory `dist`.
