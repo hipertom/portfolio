@@ -3,6 +3,7 @@ import SiteFooter from '@/components/layout/SiteFooter.vue';
 import SiteNav from '@/components/layout/SiteNav.vue';
 import AboutSection from '@/components/sections/AboutSection.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
+import ProjectsSection from '@/components/sections/ProjectsSection.vue';
 import SportSection from '@/components/sections/SportSection.vue';
 </script>
 
@@ -18,6 +19,7 @@ import SportSection from '@/components/sections/SportSection.vue';
         <HeroSection />
         <AboutSection />
         <SportSection />
+        <ProjectsSection />
     </main>
     <SiteFooter />
 </template>
