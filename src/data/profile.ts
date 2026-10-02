@@ -19,5 +19,5 @@ export const profile: Profile = {
         "I've spent most of my working life building the engine room of websites and platforms. I enjoy small teams, helping colleagues grow and keeping things calm when deadlines aren't.",
         "Outside of work you'll find me on the padel court, in the gym or out on a run, usually with a new goal on the horizon.",
     ],
-    interests: ['Running', 'Padel', 'Strength training', 'Building things', 'A good plan'],
+    interests: ['Running', 'Padel', 'Strength training', 'Building things'],
 };

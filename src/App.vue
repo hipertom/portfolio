@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SiteFooter from '@/components/layout/SiteFooter.vue';
 import SiteNav from '@/components/layout/SiteNav.vue';
+import AboutSection from '@/components/sections/AboutSection.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
 </script>
 
@@ -14,6 +15,7 @@ import HeroSection from '@/components/sections/HeroSection.vue';
     <SiteNav />
     <main id="main">
         <HeroSection />
+        <AboutSection />
     </main>
     <SiteFooter />
 </template>

@@ -11,4 +11,5 @@ export interface Profile {
     intro: string;
     bio: string[];
     interests: string[];
+    aboutPhotoUrl?: string;
 }
