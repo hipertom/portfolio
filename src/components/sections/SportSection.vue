@@ -113,7 +113,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                         </button>
                     </div>
 
-                    <div class="mt-5 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+                    <div class="mt-5 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
                         <StatTile
                             v-for="(tile, index) in statTiles"
                             :key="tile.label"
@@ -127,12 +127,15 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     <h3 class="flex items-center gap-2 text-2xl font-semibold">
                         <span aria-hidden="true">🏅</span> Race results
                     </h3>
-                    <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    <ul
+                        class="-mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 [scrollbar-width:none] gap-5 overflow-x-auto px-5 py-3 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0"
+                    >
                         <li
                             v-for="(race, index) in overview.recentRaces"
                             :key="race.id"
                             v-reveal="index * 80"
-                            :class="index % 2 === 0 ? 'sm:-rotate-1' : 'sm:rotate-1'"
+                            class="w-72 shrink-0 snap-start sm:w-80 lg:w-auto"
+                            :class="index % 2 === 0 ? 'lg:-rotate-1' : 'lg:rotate-1'"
                         >
                             <RaceCard :race="race" />
                         </li>
