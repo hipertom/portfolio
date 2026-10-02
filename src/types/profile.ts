@@ -1,5 +1,6 @@
 export interface Profile {
     firstName: string;
+    lastName: string;
     fullName: string;
     role: string;
     employer: string;

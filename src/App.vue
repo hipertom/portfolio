@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SiteFooter from '@/components/layout/SiteFooter.vue';
 import SiteNav from '@/components/layout/SiteNav.vue';
+import HeroSection from '@/components/sections/HeroSection.vue';
 </script>
 
 <template>
@@ -12,9 +13,7 @@ import SiteNav from '@/components/layout/SiteNav.vue';
     </a>
     <SiteNav />
     <main id="main">
-        <section id="top" class="page-container grid min-h-[80vh] place-items-center">
-            <h1 class="text-display font-semibold">Tom Grootjans</h1>
-        </section>
+        <HeroSection />
     </main>
     <SiteFooter />
 </template>

@@ -1,8 +1,12 @@
 import type { Profile } from '@/types/profile';
 
+const firstName = 'Tom';
+const lastName = 'Grootjans';
+
 export const profile: Profile = {
-    firstName: 'Tom',
-    fullName: 'Tom Grootjans',
+    firstName,
+    lastName,
+    fullName: `${firstName} ${lastName}`,
     role: 'Senior Backend Developer',
     employer: 'Valicare',
     city: 'Zoetermeer',

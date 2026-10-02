@@ -79,6 +79,10 @@
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
 }
 
+@utility rounded-arch {
+    border-radius: 50% 50% 2.5rem 2.5rem / 40% 40% 2.5rem 2.5rem;
+}
+
 @layer base {
     html {
         scroll-behavior: smooth;
