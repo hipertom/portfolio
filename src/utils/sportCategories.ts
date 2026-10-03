@@ -3,7 +3,6 @@ import type { Tone } from '@/types/tone';
 
 interface SportCategoryDetails {
     label: string;
-    emoji: string;
     tone: Tone;
 }
 
@@ -13,12 +12,17 @@ const sportCategoryBySportType: Record<SportType, SportCategory> = {
     Padel: 'padel',
     WeightTraining: 'strength',
     Workout: 'strength',
+    Ride: 'cycling',
+    Walk: 'walking',
+    Hike: 'walking',
 };
 
 export const sportCategoryDetails: Record<SportCategory, SportCategoryDetails> = {
-    running: { label: 'Run', emoji: '🏃', tone: 'peach' },
-    padel: { label: 'Padel', emoji: '🎾', tone: 'butter' },
-    strength: { label: 'Strength', emoji: '🏋️', tone: 'sage' },
+    running: { label: 'Run', tone: 'peach' },
+    padel: { label: 'Padel', tone: 'butter' },
+    strength: { label: 'Strength', tone: 'sage' },
+    cycling: { label: 'Ride', tone: 'peach' },
+    walking: { label: 'Walk', tone: 'sage' },
 };
 
 export function getSportCategory(sportType: SportType): SportCategory {

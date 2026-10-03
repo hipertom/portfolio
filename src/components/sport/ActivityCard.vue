@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import SportIcon from '@/components/sport/SportIcon.vue';
 import type { Activity } from '@/types/sport';
 import { formatKilometres } from '@/utils/formatDistance';
 import { formatDuration } from '@/utils/formatDuration';
@@ -10,7 +11,8 @@ import { toneSurfaceClasses } from '@/utils/toneClasses';
 
 const { activity } = defineProps<{ activity: Activity }>();
 
-const category = computed(() => sportCategoryDetails[getSportCategory(activity.sportType)]);
+const category = computed(() => getSportCategory(activity.sportType));
+const categoryDetails = computed(() => sportCategoryDetails[category.value]);
 
 const metrics = computed(() => {
     const duration = { label: 'Time', value: formatDuration(activity.movingTimeInSeconds) };
@@ -33,16 +35,15 @@ const metrics = computed(() => {
     >
         <header class="flex items-start gap-4">
             <span
-                class="grid size-12 shrink-0 place-items-center rounded-2xl text-2xl"
-                :class="toneSurfaceClasses[category.tone]"
-                aria-hidden="true"
+                class="grid size-12 shrink-0 place-items-center rounded-2xl"
+                :class="toneSurfaceClasses[categoryDetails.tone]"
             >
-                {{ category.emoji }}
+                <SportIcon :category="category" class="size-6" />
             </span>
             <div class="min-w-0">
                 <h4 class="truncate font-display text-lg font-semibold">{{ activity.name }}</h4>
                 <p class="text-sm text-ink-soft">
-                    {{ category.label }} &middot;
+                    {{ categoryDetails.label }} &middot;
                     <time :datetime="activity.startDate">{{ formatRelativeDay(activity.startDate) }}</time>
                 </p>
             </div>

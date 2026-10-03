@@ -1,6 +1,6 @@
-export type SportType = 'Run' | 'TrailRun' | 'Padel' | 'WeightTraining' | 'Workout';
+export type SportType = 'Run' | 'TrailRun' | 'Padel' | 'WeightTraining' | 'Workout' | 'Ride' | 'Walk' | 'Hike';
 
-export type SportCategory = 'running' | 'padel' | 'strength';
+export type SportCategory = 'running' | 'padel' | 'strength' | 'cycling' | 'walking';
 
 export type TotalsPeriod = 'month' | 'year';
 

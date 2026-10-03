@@ -94,11 +94,11 @@ export function createDummySportOverview(): SportOverview {
             }),
             createActivity({
                 id: 5,
-                name: 'Padel league match',
-                sportType: 'Padel',
-                startDate: daysAgo(5, 21),
-                distanceInMeters: 0,
-                movingTimeInSeconds: 75 * 60,
+                name: 'Evening walk',
+                sportType: 'Walk',
+                startDate: daysAgo(5, 20),
+                distanceInMeters: 5_200,
+                movingTimeInSeconds: 58 * 60,
             }),
             createActivity({
                 id: 6,
