@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ArrowDown } from 'lucide-vue-next';
 import portraitUrl from '@/assets/images/tom-grootjans.jpeg';
-import RotatingBadge from '@/components/ui/RotatingBadge.vue';
 import SocialLinks from '@/components/ui/SocialLinks.vue';
 import { heroSectionId, navigationItems } from '@/data/navigation';
 import { profile } from '@/data/profile';
@@ -10,7 +9,7 @@ const [firstNavigationItem] = navigationItems;
 </script>
 
 <template>
-    <section :id="heroSectionId" aria-labelledby="hero-title" class="relative overflow-x-clip pt-32 pb-16 sm:pt-40">
+    <section :id="heroSectionId" aria-labelledby="hero-title" class="relative overflow-x-clip pt-32 pb-12 sm:pt-40">
         <div
             class="pointer-events-none absolute -top-40 -right-32 size-[34rem] rounded-full bg-peach/50 blur-3xl"
             aria-hidden="true"
@@ -22,10 +21,7 @@ const [firstNavigationItem] = navigationItems;
 
         <div class="relative page-container grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
             <div class="lg:col-span-7">
-                <p v-reveal class="inline-flex items-center gap-2 text-lg font-medium text-ink-soft">
-                    <span class="inline-block origin-[70%_70%] animate-wave" aria-hidden="true">👋</span>
-                    Hi there, I'm
-                </p>
+                <p v-reveal class="text-lg font-medium text-ink-soft">Hi there, I'm</p>
 
                 <h1 id="hero-title" v-reveal="80" class="mt-3 text-display font-semibold">
                     <span class="relative inline-block">
@@ -84,22 +80,6 @@ const [firstNavigationItem] = navigationItems;
                         class="size-full object-cover object-[50%_30%] mix-blend-multiply"
                     />
                 </div>
-
-                <RotatingBadge
-                    text="run • lift • padel • repeat • "
-                    class="absolute -top-4 -right-2 size-28 sm:-right-6 sm:size-32"
-                />
-
-                <span
-                    class="absolute top-[8%] -left-4 inline-flex -rotate-6 animate-float items-center gap-2 rounded-2xl bg-white px-4 py-2.5 text-sm font-semibold shadow-soft sm:top-[42%] sm:-left-10"
-                >
-                    <span aria-hidden="true">📍</span> {{ profile.city }}, NL
-                </span>
-                <span
-                    class="absolute -right-2 bottom-10 inline-flex rotate-3 animate-float items-center gap-2 rounded-2xl bg-sage px-4 py-2.5 text-sm font-semibold shadow-soft [animation-delay:-3s] sm:-right-8"
-                >
-                    {{ profile.role }}
-                </span>
             </div>
         </div>
     </section>
