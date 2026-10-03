@@ -10,7 +10,7 @@ function formatPeriod(startDate: string, endDate: string | null): string {
 </script>
 
 <template>
-    <section id="experience" aria-labelledby="experience-title" class="page-container py-20 sm:py-28">
+    <section id="experience" aria-labelledby="experience-title" class="page-container py-12">
         <div class="grid gap-12 lg:grid-cols-12 lg:gap-10">
             <div class="lg:col-span-5">
                 <div class="lg:sticky lg:top-32">

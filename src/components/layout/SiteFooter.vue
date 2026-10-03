@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-    <footer class="mt-24 rounded-t-[2.5rem] bg-ink text-cream sm:mt-32">
+    <footer class="mt-12 rounded-t-[2.5rem] bg-ink text-cream">
         <div class="page-container py-14 sm:py-20">
             <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
                 <div v-reveal class="max-w-md">

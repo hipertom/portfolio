@@ -10,7 +10,7 @@ const age = calculateAge(profile.birthDate);
 </script>
 
 <template>
-    <section id="about" aria-labelledby="about-title" class="page-container py-20 sm:py-28">
+    <section id="about" aria-labelledby="about-title" class="page-container py-12">
         <SectionHeading id="about-title" eyebrow="About me" title="Nice to meet you." tone="peach" />
 
         <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
@@ -56,10 +56,9 @@ const age = calculateAge(profile.birthDate);
             <BentoTile v-reveal="80" tone="cream" label="Things I love" :icon="Heart" class="gap-5 sm:col-span-2">
                 <ul class="flex flex-wrap gap-2">
                     <li
-                        v-for="(interest, index) in profile.interests"
+                        v-for="interest in profile.interests"
                         :key="interest"
-                        class="rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-soft transition-transform duration-300 ease-(--ease-bounce) hover:-rotate-3"
-                        :class="index % 2 === 0 ? 'rotate-1' : '-rotate-1'"
+                        class="rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-soft"
                     >
                         {{ interest }}
                     </li>

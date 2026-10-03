@@ -41,7 +41,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
 </script>
 
 <template>
-    <section id="sport" aria-labelledby="sport-title" class="page-container py-12 sm:py-16">
+    <section id="sport" aria-labelledby="sport-title" class="page-container py-12">
         <div class="rounded-[2.5rem] bg-sage-soft px-5 py-14 sm:px-10 sm:py-20 lg:px-14">
             <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
                 <SectionHeading id="sport-title" eyebrow="Off the clock" title="Happiest when I'm moving." tone="white">
@@ -124,9 +124,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                 </div>
 
                 <div v-if="overview.recentRaces.length" class="mt-16">
-                    <h3 class="flex items-center gap-2 text-2xl font-semibold">
-                        <span aria-hidden="true">🏅</span> Race results
-                    </h3>
+                    <h3 class="text-2xl font-semibold">Race results</h3>
                     <ul
                         class="-mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 [scrollbar-width:none] gap-5 overflow-x-auto px-5 py-3 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0"
                     >
@@ -135,7 +133,6 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                             :key="race.id"
                             v-reveal="index * 80"
                             class="w-72 shrink-0 snap-start sm:w-80 lg:w-auto"
-                            :class="index % 2 === 0 ? 'lg:-rotate-1' : 'lg:rotate-1'"
                         >
                             <RaceCard :race="race" />
                         </li>
@@ -143,9 +140,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                 </div>
 
                 <div class="mt-16">
-                    <h3 class="flex items-center gap-2 text-2xl font-semibold">
-                        <span aria-hidden="true">⚡</span> Latest activities
-                    </h3>
+                    <h3 class="text-2xl font-semibold">Latest activities</h3>
                     <ul
                         v-if="hasActivities"
                         class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-sm:[&>li:nth-child(n+5)]:hidden"

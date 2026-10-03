@@ -12,7 +12,7 @@ const pinPositions = ['top-3 left-3', 'top-3 right-3', 'bottom-3 left-3', 'botto
 
 <template>
     <article
-        class="relative overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 transition duration-500 ease-(--ease-bounce) hover:rotate-0 hover:shadow-lift"
+        class="relative overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 transition duration-500 ease-(--ease-bounce) hover:shadow-lift"
     >
         <span
             v-for="position in pinPositions"

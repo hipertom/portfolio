@@ -5,7 +5,7 @@ import { projects } from '@/data/projects';
 </script>
 
 <template>
-    <section id="projects" aria-labelledby="projects-title" class="page-container py-20 sm:py-28">
+    <section id="projects" aria-labelledby="projects-title" class="page-container py-12">
         <SectionHeading id="projects-title" eyebrow="Projects" title="Things I've made, and things I'm making.">
             A mix of work I'm proud of and personal projects, on and off the track.
         </SectionHeading>
