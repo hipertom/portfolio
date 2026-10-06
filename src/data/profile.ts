@@ -7,7 +7,7 @@ export const profile: Profile = {
     firstName,
     lastName,
     fullName: `${firstName} ${lastName}`,
-    role: 'Senior Backend Developer',
+    role: 'Full Stack Developer',
     employer: 'Valicare',
     city: 'Zoetermeer',
     country: 'The Netherlands',

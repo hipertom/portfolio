@@ -12,6 +12,7 @@
     --color-peach-soft: #fbe5d4;
     --color-sage: #c9dcc3;
     --color-sage-soft: #e4eee0;
+    --color-sage-deep: #9dbb94;
     --color-butter: #f7e6a6;
     --color-butter-soft: #fbf2d2;
     --color-accent: #f26b3a;
@@ -31,6 +32,17 @@
     --ease-gentle: cubic-bezier(0.2, 0.7, 0.2, 1);
 
     --animate-draw: draw 1.2s var(--ease-gentle) 0.4s both;
+    --animate-glow: glow 2.8s ease-in-out infinite;
+
+    @keyframes glow {
+        0%,
+        100% {
+            opacity: 0.2;
+        }
+        50% {
+            opacity: 0.7;
+        }
+    }
 
     @keyframes draw {
         from {

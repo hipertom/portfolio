@@ -1,8 +1,9 @@
 export interface Experience {
-    role: string;
+    roles: string[];
     company: string;
     location: string;
     startDate: string;
     endDate: string | null;
     description: string;
+    continuationNote?: string;
 }
