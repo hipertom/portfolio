@@ -87,7 +87,7 @@ function markerClasses(experience: Experience, index: number): string {
                                 :key="additionalRole"
                                 class="mt-1 block text-lg font-medium text-ink-soft"
                             >
-                                &amp; {{ additionalRole }}
+                                + {{ additionalRole }}
                             </span>
                         </h3>
                         <p class="mt-2 flex flex-wrap items-center gap-x-2 font-medium text-ink-soft">

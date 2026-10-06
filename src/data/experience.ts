@@ -11,14 +11,14 @@ export const experiences: Experience[] = [
             'Working across the full stack of the Valicare platform, with a focus on reliable, well-tested code and close collaboration with the product team.',
     },
     {
-        roles: ['Senior Backend Developer', 'Team Lead Development'],
+        roles: ['Team Lead Development', 'Senior Backend Developer'],
         company: 'ZIGT Mediabureau',
         location: 'Hoofddorp',
         startDate: '2021-10',
         endDate: '2025-02',
         description:
             'Led the development team while staying hands-on as a senior backend developer. Coached colleagues, shaped the way we work and kept projects on track.',
-        continuationNote: 'Est Digital was acquired by ZIGT. The whole team moved along to Hoofddorp.',
+        continuationNote: 'Est Digital was acquired by ZIGT.',
     },
     {
         roles: ['Backend Developer'],
@@ -28,7 +28,7 @@ export const experiences: Experience[] = [
         endDate: '2021-10',
         description:
             'Built websites and platforms for a wide range of clients. This is where I learned to turn wishes on a whiteboard into solid, maintainable software.',
-        continuationNote: 'KeesTM Internetbureau was renamed to Est Digital. Same team, same desk.',
+        continuationNote: 'KeesTM Internetbureau was renamed to Est Digital.',
     },
     {
         roles: ['Backend Developer'],
