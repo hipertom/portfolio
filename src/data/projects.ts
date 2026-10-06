@@ -8,7 +8,7 @@ export const projects: Project[] = [
             "A playful social battle for parents and kids. Together you discover what's real and what's fake in the online world your children grow up in.",
         tags: ['Laravel', 'React'],
         tone: 'peach',
-        emoji: '🕵️',
+        artwork: 'overlap',
         url: 'https://whatsnep.nl/',
     },
     {
@@ -18,7 +18,7 @@ export const projects: Project[] = [
             'A property platform where estate agents showcase their listings, built to be fast to browse and easy to keep up to date.',
         tags: ['Drupal'],
         tone: 'sage',
-        emoji: '🏡',
+        artwork: 'arches',
         url: 'https://www.onsaanbod.nl/',
     },
     {
@@ -28,7 +28,7 @@ export const projects: Project[] = [
             'A calm little home on the internet. Designed from scratch, built with Vue and Tailwind and soon connected to Strava.',
         tags: ['Vue', 'Tailwind CSS', 'TypeScript'],
         tone: 'butter',
-        emoji: '🌱',
+        artwork: 'squiggle',
     },
     {
         title: 'Next big goal',
@@ -36,6 +36,6 @@ export const projects: Project[] = [
         description: 'Placeholder: a race or challenge I am training towards. Swap this for the real thing.',
         tags: ['Running'],
         tone: 'cream',
-        emoji: '🎯',
+        artwork: 'elevation',
     },
 ];

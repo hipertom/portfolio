@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowUpRight } from 'lucide-vue-next';
+import ProjectArtwork from '@/components/ui/ProjectArtwork.vue';
 import TagPill from '@/components/ui/TagPill.vue';
 import type { Project, ProjectKind } from '@/types/project';
 import { toneSurfaceClasses } from '@/utils/toneClasses';
@@ -28,16 +29,11 @@ const kindLabels: Record<ProjectKind, string> = {
                 loading="lazy"
                 class="size-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <template v-else>
-                <div class="absolute -right-12 -bottom-16 size-56 rounded-full bg-white/30" aria-hidden="true" />
-                <div class="absolute top-6 left-8 size-16 rounded-full bg-white/25" aria-hidden="true" />
-                <span
-                    class="absolute inset-0 grid place-items-center text-7xl transition-transform duration-700 ease-(--ease-bounce) group-hover:scale-110 group-hover:-rotate-6 md:text-8xl"
-                    aria-hidden="true"
-                >
-                    {{ project.emoji }}
-                </span>
-            </template>
+            <ProjectArtwork
+                v-else
+                :artwork="project.artwork"
+                class="size-full transition-transform duration-700 ease-(--ease-gentle) group-hover:scale-105"
+            />
         </div>
 
         <div class="flex flex-1 flex-col p-4 pt-6 sm:p-5 sm:pt-6">
