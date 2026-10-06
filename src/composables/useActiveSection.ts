@@ -1,29 +1,31 @@
-import { onMounted, ref, shallowRef } from 'vue';
-import { useIntersectionObserver } from '@vueuse/core';
+import { onMounted, ref } from 'vue';
+import { useEventListener, useThrottleFn } from '@vueuse/core';
 
-export function useActiveSection(sectionIds: string[]) {
+export function useActiveSection(sectionIds: string[], probeLineRatio = 0.4) {
     const activeSectionId = ref<string | null>(null);
-    const sectionElements = shallowRef<HTMLElement[]>([]);
 
-    onMounted(() => {
-        sectionElements.value = sectionIds
+    function updateActiveSection() {
+        const probeLine = window.innerHeight * probeLineRatio;
+        const activeSection = sectionIds
             .map((sectionId) => document.getElementById(sectionId))
-            .filter((element): element is HTMLElement => element !== null);
-    });
+            .find((section) => {
+                if (!section) {
+                    return false;
+                }
 
-    useIntersectionObserver(
-        sectionElements,
-        (entries) => {
-            const visibleEntry = entries.find((entry) => entry.isIntersecting);
+                const { top, bottom } = section.getBoundingClientRect();
 
-            if (!visibleEntry) {
-                return;
-            }
+                return top <= probeLine && bottom > probeLine;
+            });
 
-            activeSectionId.value = visibleEntry.target.id;
-        },
-        { rootMargin: '-45% 0px -50% 0px' },
-    );
+        activeSectionId.value = activeSection?.id ?? null;
+    }
+
+    const throttledUpdate = useThrottleFn(updateActiveSection, 100, true);
+
+    useEventListener(window, 'scroll', throttledUpdate, { passive: true });
+    useEventListener(window, 'resize', throttledUpdate, { passive: true });
+    onMounted(updateActiveSection);
 
     return { activeSectionId };
 }
