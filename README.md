@@ -31,6 +31,8 @@ All copy lives in typed data files, so content changes never require touching co
 - `src/data/socialLinks.ts`: links in the hero and footer
 
 Design tokens (colours, fonts, type scale, shadows) are defined in `src/assets/css/main.css`.
+The full visual language, including rules for reusing it in other apps, is described in
+[`docs/design-system.md`](docs/design-system.md).
 
 ## Strava
 
