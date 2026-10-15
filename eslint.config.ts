@@ -9,7 +9,7 @@ export default defineConfigWithVueTs(
     },
     {
         name: 'app/files-to-ignore',
-        ignores: ['**/dist/**', '**/coverage/**'],
+        ignores: ['**/dist/**', '**/coverage/**', '**/.nuxt/**', '**/.output/**'],
     },
     pluginVue.configs['flat/recommended'],
     vueTsConfigs.recommended,

@@ -5,5 +5,5 @@
   "semi": true,
   "trailingComma": "all",
   "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./src/assets/css/main.css"
+  "tailwindStylesheet": "./app/assets/css/main.css"
 }

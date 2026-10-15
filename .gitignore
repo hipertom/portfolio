@@ -11,6 +11,13 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+
+# Nuxt
+.nuxt
+.output
+.data
+.nitro
+.cache
 coverage
 *.local
 

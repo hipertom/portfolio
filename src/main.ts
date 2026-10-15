@@ -1,8 +1,0 @@
-import { createApp } from 'vue';
-import '@fontsource-variable/bricolage-grotesque/opsz.css';
-import '@fontsource-variable/inter';
-import './assets/css/main.css';
-import App from './App.vue';
-import { vReveal } from './directives/reveal';
-
-createApp(App).directive('reveal', vReveal).mount('#app');
