@@ -31,9 +31,11 @@ All copy lives in typed data files, so content changes never require touching co
 - `app/data/experience.ts`: CV entries, newest first, `endDate: null` for the current job
 - `app/data/socialLinks.ts`: links in the hero and footer
 
-Design tokens (colours, fonts, type scale, shadows) are defined in `app/assets/css/main.css`.
-The full visual language, including rules for reusing it in other apps, is described in
-[`docs/design-system.md`](docs/design-system.md).
+## Design system
+
+The look comes from [Warm Sorbet](https://github.com/hipertom/warm-sorbet), a Nuxt layer shared with Tom's other
+projects: Tailwind theme, fonts, base styles and UI components (`<UiTile>`, `<UiPill>`, `<UiStatTile>`, …). This repo
+has no theme of its own; the rules are in the layer's `docs/design-system.md`.
 
 ## Strava
 
