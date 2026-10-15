@@ -110,7 +110,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     </div>
 
                     <div class="mt-5 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
-                        <SportStatTile
+                        <UiStatTile
                             v-for="(tile, index) in statTiles"
                             :key="tile.label"
                             v-reveal="index * 60"

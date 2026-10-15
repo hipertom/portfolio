@@ -75,7 +75,7 @@ function markerClasses(experience: Experience, index: number): string {
                                 </span>
                                 <span>{{ formatTenure(experience.startDate, experience.endDate) }}</span>
                             </p>
-                            <UiTagPill v-if="isCurrent(experience)" tone="butter">Current</UiTagPill>
+                            <UiPill v-if="isCurrent(experience)" tone="butter">Current</UiPill>
                         </div>
                         <h3 class="mt-3 text-2xl leading-tight font-semibold">
                             {{ experience.roles[0] }}

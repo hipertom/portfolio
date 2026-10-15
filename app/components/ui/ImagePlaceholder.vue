@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Camera } from '@lucide/vue';
 import type { Component } from 'vue';
-import type { Tone } from '~/types/tone';
 
 withDefaults(defineProps<{ tone?: Tone; label?: string; icon?: Component }>(), {
     tone: 'sage',
@@ -13,7 +12,7 @@ withDefaults(defineProps<{ tone?: Tone; label?: string; icon?: Component }>(), {
 <template>
     <div
         class="relative grid place-items-center overflow-hidden"
-        :class="toneSurfaceClasses[tone]"
+        :class="TONE_SURFACE[tone]"
         role="img"
         :aria-label="label"
     >

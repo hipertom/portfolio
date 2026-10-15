@@ -1,5 +1,4 @@
 import type { SportCategory, SportType } from '~/types/sport';
-import type { Tone } from '~/types/tone';
 
 interface SportCategoryDetails {
     label: string;

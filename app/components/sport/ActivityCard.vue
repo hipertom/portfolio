@@ -28,7 +28,7 @@ const metrics = computed(() => {
         <header class="flex items-start gap-4">
             <span
                 class="grid size-12 shrink-0 place-items-center rounded-2xl"
-                :class="toneSurfaceClasses[categoryDetails.tone]"
+                :class="TONE_SURFACE[categoryDetails.tone]"
             >
                 <SportIcon :category="category" class="size-6" />
             </span>

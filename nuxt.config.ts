@@ -1,15 +1,12 @@
-import tailwindcss from '@tailwindcss/vite';
-
 const siteUrl = 'https://tomgrootjans.nl/';
 const description = 'Runner, lifter and padel enthusiast from Zoetermeer who builds software for a living.';
 
 export default defineNuxtConfig({
+    // Warm Sorbet: the shared design system (theme, fonts, Ui* components, v-reveal).
+    // See node_modules/warm-sorbet/docs/design-system.md.
+    extends: ['warm-sorbet'],
     compatibilityDate: '2026-10-01',
     devtools: { enabled: true },
-    css: ['~/assets/css/main.css'],
-    vite: {
-        plugins: [tailwindcss()],
-    },
     // A single static page: prerendered at build time (`npm run generate`).
     nitro: {
         prerender: { routes: ['/'] },
@@ -35,8 +32,6 @@ export default defineNuxtConfig({
                 { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
                 { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
             ],
-            // Without JavaScript the reveal directive never runs, so show its content straight away.
-            noscript: [{ innerHTML: "<style>[data-reveal='hidden'] { opacity: 1; translate: none; }</style>" }],
         },
     },
 });

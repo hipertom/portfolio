@@ -17,7 +17,7 @@ const kindLabels: Record<ProjectKind, string> = {
     >
         <div
             class="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] md:aspect-video"
-            :class="toneSurfaceClasses[project.tone]"
+            :class="TONE_SURFACE[project.tone]"
         >
             <img
                 v-if="project.imageUrl"
@@ -35,7 +35,7 @@ const kindLabels: Record<ProjectKind, string> = {
 
         <div class="flex flex-1 flex-col p-4 pt-6 sm:p-5 sm:pt-6">
             <div class="flex flex-wrap items-center gap-2">
-                <UiTagPill tone="ink">{{ kindLabels[project.kind] }}</UiTagPill>
+                <UiPill tone="ink">{{ kindLabels[project.kind] }}</UiPill>
                 <span v-for="tag in project.tags" :key="tag" class="text-xs font-medium text-ink-soft">
                     {{ tag }}
                 </span>

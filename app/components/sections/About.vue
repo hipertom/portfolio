@@ -10,13 +10,19 @@ const age = calculateAge(profile.birthDate);
         <UiSectionHeading id="about-title" eyebrow="About me" title="Nice to meet you." tone="peach" />
 
         <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-            <UiBentoTile v-reveal class="justify-between gap-6 sm:col-span-2 lg:row-span-2">
+            <UiTile
+                v-reveal
+                spacious
+                interactive
+                tone="white"
+                class="justify-between gap-6 sm:col-span-2 lg:row-span-2"
+            >
                 <div class="space-y-4 text-lg leading-relaxed text-ink-soft">
                     <p v-for="paragraph in profile.bio" :key="paragraph" class="first:text-xl first:text-ink">
                         {{ paragraph }}
                     </p>
                 </div>
-            </UiBentoTile>
+            </UiTile>
 
             <div v-reveal="80" class="overflow-hidden rounded-[2rem] sm:row-span-2">
                 <img
@@ -29,8 +35,10 @@ const age = calculateAge(profile.birthDate);
                 <UiImagePlaceholder v-else tone="sage" class="aspect-[4/3] size-full sm:aspect-auto" />
             </div>
 
-            <UiBentoTile
+            <UiTile
                 v-reveal="120"
+                spacious
+                interactive
                 tone="butter"
                 label="Currently"
                 :icon="BriefcaseBusiness"
@@ -40,16 +48,32 @@ const age = calculateAge(profile.birthDate);
                     {{ profile.role }}
                     <span class="block text-base font-medium text-ink-soft">at {{ profile.employer }}</span>
                 </p>
-            </UiBentoTile>
+            </UiTile>
 
-            <UiBentoTile v-reveal="160" tone="peach" label="Based in" :icon="MapPin" class="justify-between gap-6">
+            <UiTile
+                v-reveal="160"
+                spacious
+                interactive
+                tone="peach"
+                label="Based in"
+                :icon="MapPin"
+                class="justify-between gap-6"
+            >
                 <p class="font-display text-2xl leading-tight font-semibold">
                     {{ profile.city }}
                     <span class="block text-base font-medium text-ink-soft">{{ profile.country }}</span>
                 </p>
-            </UiBentoTile>
+            </UiTile>
 
-            <UiBentoTile v-reveal="80" tone="cream" label="Things I love" :icon="Heart" class="gap-5 sm:col-span-2">
+            <UiTile
+                v-reveal="80"
+                spacious
+                interactive
+                tone="cream"
+                label="Things I love"
+                :icon="Heart"
+                class="gap-5 sm:col-span-2"
+            >
                 <ul class="flex flex-wrap gap-2">
                     <li
                         v-for="interest in profile.interests"
@@ -59,18 +83,26 @@ const age = calculateAge(profile.birthDate);
                         {{ interest }}
                     </li>
                 </ul>
-            </UiBentoTile>
+            </UiTile>
 
-            <UiBentoTile v-reveal="120" tone="sage" label="Speaks" :icon="Languages" class="justify-between gap-6">
+            <UiTile
+                v-reveal="120"
+                spacious
+                interactive
+                tone="sage"
+                label="Speaks"
+                :icon="Languages"
+                class="justify-between gap-6"
+            >
                 <p class="font-display text-2xl leading-tight font-semibold">{{ profile.languages.join(' & ') }}</p>
-            </UiBentoTile>
+            </UiTile>
 
-            <UiBentoTile v-reveal="160" tone="ink" class="justify-between gap-6">
+            <UiTile v-reveal="160" spacious interactive tone="ink" class="justify-between gap-6">
                 <p class="font-display text-6xl font-semibold tracking-tight">
                     {{ age }}<span class="text-accent">.</span>
                 </p>
                 <p class="text-sm font-medium text-cream/70">trips around the sun, and counting</p>
-            </UiBentoTile>
+            </UiTile>
         </div>
     </section>
 </template>

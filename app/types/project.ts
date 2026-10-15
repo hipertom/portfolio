@@ -1,5 +1,3 @@
-import type { Tone } from '~/types/tone';
-
 export type ProjectKind = 'work' | 'personal' | 'sport';
 
 export type ProjectArtwork = 'overlap' | 'arches' | 'squiggle' | 'elevation';

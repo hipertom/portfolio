@@ -5,5 +5,5 @@
   "semi": true,
   "trailingComma": "all",
   "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./app/assets/css/main.css"
+  "tailwindStylesheet": "./node_modules/warm-sorbet/app/assets/css/main.css"
 }
