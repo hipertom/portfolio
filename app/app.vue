@@ -9,7 +9,6 @@
     <main id="main">
         <SectionsHero />
         <SectionsAbout />
-        <SectionsSport />
         <SectionsProjects />
         <SectionsExperience />
     </main>
