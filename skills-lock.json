@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "spatie-javascript": {
+      "source": "spatie/guidelines-skills",
+      "sourceType": "github",
+      "skillPath": "resources/boost/skills/spatie-javascript/SKILL.md",
+      "computedHash": "6f681bb6790b3702ab28e887b7353fde87abb259eb5b9f2806191df9ff55be22"
+    },
+    "spatie-version-control": {
+      "source": "spatie/guidelines-skills",
+      "sourceType": "github",
+      "skillPath": "resources/boost/skills/spatie-version-control/SKILL.md",
+      "computedHash": "47219215138dbe0c883fd7f8b7751bf9f533b56666a9cc6a568e9951bd01c7d2"
+    }
+  }
+}

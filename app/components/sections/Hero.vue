@@ -1,0 +1,80 @@
+<script setup lang="ts">
+import { ArrowDown } from '@lucide/vue';
+import portraitUrl from '~/assets/images/tom-grootjans.jpeg';
+import { heroSectionId, navigationItems } from '~/data/navigation';
+import { profile } from '~/data/profile';
+
+const [firstNavigationItem] = navigationItems;
+</script>
+
+<template>
+    <section :id="heroSectionId" aria-labelledby="hero-title" class="relative overflow-x-clip pt-32 pb-12 sm:pt-40">
+        <div
+            class="pointer-events-none absolute -top-40 -right-32 size-[34rem] rounded-full bg-peach/50 blur-3xl"
+            aria-hidden="true"
+        />
+        <div
+            class="pointer-events-none absolute top-1/2 -left-48 size-[28rem] rounded-full bg-butter/50 blur-3xl"
+            aria-hidden="true"
+        />
+
+        <div class="relative page-container grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
+            <div class="lg:col-span-7">
+                <p v-reveal class="text-lg font-medium text-ink-soft">Hi there, I'm</p>
+
+                <h1 id="hero-title" v-reveal="80" class="mt-3 text-display font-semibold">
+                    <span class="relative inline-block">
+                        {{ profile.firstName }}
+                        <svg
+                            class="absolute -bottom-[0.12em] left-0 h-[0.22em] w-full text-accent"
+                            viewBox="0 0 200 20"
+                            preserveAspectRatio="none"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M3 14 C 40 4, 70 4, 100 11 S 165 18, 197 6"
+                                stroke="currentColor"
+                                stroke-width="6"
+                                stroke-linecap="round"
+                                pathLength="1"
+                                stroke-dasharray="1"
+                                class="animate-draw"
+                            />
+                        </svg>
+                    </span>
+                    <br />
+                    {{ profile.lastName }}
+                </h1>
+
+                <p v-reveal="160" class="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+                    {{ profile.intro }}
+                </p>
+
+                <div v-reveal="240" class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-6">
+                    <UiButton v-if="firstNavigationItem" :to="`#${firstNavigationItem.sectionId}`" :icon="ArrowDown">
+                        Get to know me
+                    </UiButton>
+                    <LocalSocialLinks />
+                </div>
+            </div>
+
+            <div v-reveal="200" class="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
+                <div
+                    class="absolute inset-0 translate-x-4 translate-y-4 rotate-3 rounded-arch bg-butter"
+                    aria-hidden="true"
+                />
+                <div class="relative aspect-[4/5] overflow-hidden rounded-arch bg-peach">
+                    <img
+                        :src="portraitUrl"
+                        :alt="`Portrait of ${profile.fullName}, smiling`"
+                        width="900"
+                        height="900"
+                        fetchpriority="high"
+                        class="size-full object-cover object-[50%_30%] mix-blend-multiply"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

@@ -1,23 +1,42 @@
 {
   "name": "portfolio",
   "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.0.5"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^1.1.5",
-    "@vue/compiler-sfc": "^3.0.5",
-    "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.8",
-    "tailwindcss": "^2.0.3",
-    "vite": "^2.0.5"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "vercel-build": "nuxt build",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint . --fix",
+    "format": "prettier --write app/"
   },
   "engines": {
-    "node": "16.x"
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.57.0",
+    "@vueuse/core": "^15.0.0",
+    "nuxt": "^4.6.1",
+    "vue": "^3.5.43",
+    "warm-sorbet": "github:hipertom/warm-sorbet#v0.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.4",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "eslint": "^10.11.0",
+    "eslint-plugin-vue": "^10.11.1",
+    "globals": "^17.13.0",
+    "jiti": "^2.7.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "~6.0",
+    "typescript-eslint": "^8.71.0",
+    "vue-tsc": "^3.3.12"
   }
 }

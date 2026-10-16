@@ -1,0 +1,51 @@
+# tomgrootjans.nl
+
+Personal one-pager of Tom Grootjans: who I am, what I do for sport, a few projects and a short CV.
+
+Built with Nuxt 4, TypeScript and Tailwind CSS v4. The site is a single page, prerendered at build time.
+
+## Getting started
+
+```bash
+nvm use
+npm install
+npm run dev
+```
+
+| Script              | Description                                   |
+| ------------------- | --------------------------------------------- |
+| `npm run dev`       | Start the Nuxt dev server                     |
+| `npm run generate`  | Prerender the static site to `.output/public` |
+| `npm run preview`   | Serve the production build locally            |
+| `npm run typecheck` | Run `nuxt typecheck`                          |
+| `npm run lint`      | Lint and fix with ESLint                      |
+| `npm run format`    | Format `app/` with Prettier                   |
+
+## Hosting
+
+Hosted on Vercel: Vercel runs `npm run vercel-build` (`nuxt build`). Nitro detects Vercel and outputs the prerendered
+page as static files, with room for server routes (such as the Strava API) as serverless functions.
+
+## Editing content
+
+All copy lives in typed data files, so content changes never require touching components:
+
+- `app/data/profile.ts`: name, intro, bio, interests and the optional about photo
+- `app/data/projects.ts`: highlighted projects (`work`, `personal` or `sport`)
+- `app/data/experience.ts`: CV entries, newest first, `endDate: null` for the current job
+- `app/data/socialLinks.ts`: links in the hero and footer
+
+## Design system
+
+The look comes from [Warm Sorbet](https://github.com/hipertom/warm-sorbet), a Nuxt layer shared with Tom's other
+projects: Tailwind theme, fonts, base styles and UI components (`<UiTile>`, `<UiPill>`, `<UiStatTile>`, …). This repo
+has no theme of its own; the rules are in the layer's `docs/design-system.md`.
+
+## Strava
+
+The sport section reads a `SportOverview` (see `app/types/sport.ts`) through a `SportOverviewProvider`.
+For now `app/services/sport/index.ts` uses dummy data from `app/data/dummySportOverview.ts`.
+
+Strava credentials must never reach the browser. The plan is a Nuxt server route on Vercel that exchanges the refresh
+token, fetches recent activities, calculates the totals and returns a `SportOverview`. Connecting it means adding an
+HTTP provider and swapping it in `app/services/sport/index.ts`.
