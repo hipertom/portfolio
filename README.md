@@ -2,8 +2,7 @@
 
 Personal one-pager of Tom Grootjans: who I am, what I do for sport, a few projects and a short CV.
 
-Built with Nuxt 4, TypeScript and Tailwind CSS v4. The site is a single, fully static page, prerendered with
-`nuxt generate`.
+Built with Nuxt 4, TypeScript and Tailwind CSS v4. The site is a single page, prerendered at build time.
 
 ## Getting started
 
@@ -24,8 +23,8 @@ npm run dev
 
 ## Hosting
 
-Hosted on Vercel as a static site: Vercel runs `npm run vercel-build` (`nuxt generate`), which Nitro detects and
-outputs as plain static files, without serverless functions.
+Hosted on Vercel: Vercel runs `npm run vercel-build` (`nuxt build`). Nitro detects Vercel and outputs the prerendered
+page as static files, with room for server routes (such as the Strava API) as serverless functions.
 
 ## Editing content
 
