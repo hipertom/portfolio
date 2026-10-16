@@ -18,6 +18,7 @@ dist-ssr
 .data
 .nitro
 .cache
+.vercel
 coverage
 *.local
 

@@ -22,6 +22,11 @@ npm run dev
 | `npm run lint`      | Lint and fix with ESLint                      |
 | `npm run format`    | Format `app/` with Prettier                   |
 
+## Hosting
+
+Hosted on Vercel as a static site: Vercel runs `npm run vercel-build` (`nuxt generate`), which Nitro detects and
+outputs as plain static files, without serverless functions.
+
 ## Editing content
 
 All copy lives in typed data files, so content changes never require touching components:
