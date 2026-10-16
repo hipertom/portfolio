@@ -35,7 +35,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
     <section id="sport" aria-labelledby="sport-title" class="page-container py-12">
         <div class="rounded-[2.5rem] bg-sage-soft px-5 py-14 sm:px-10 sm:py-20 lg:px-14">
             <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-                <UiSectionHeading
+                <LocalSectionHeading
                     id="sport-title"
                     eyebrow="Off the clock"
                     title="Happiest when I'm moving."
@@ -43,7 +43,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                 >
                     Sport is how I clear my head. Running gives me headspace, the gym keeps me strong and padel is where
                     my competitive side comes out. Here's what I've been up to lately.
-                </UiSectionHeading>
+                </LocalSectionHeading>
                 <a
                     v-if="stravaLink"
                     v-reveal="100"
@@ -52,7 +52,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     rel="noopener"
                     class="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-accent px-6 py-3 font-semibold text-ink shadow-soft transition duration-300 ease-(--ease-bounce) hover:-translate-y-0.5 hover:shadow-lift lg:self-auto"
                 >
-                    <UiBrandIcon brand="strava" class="size-4 transition-transform group-hover:rotate-[-8deg]" />
+                    <LocalBrandIcon brand="strava" class="size-4 transition-transform group-hover:rotate-[-8deg]" />
                     Follow me on Strava
                 </a>
             </div>

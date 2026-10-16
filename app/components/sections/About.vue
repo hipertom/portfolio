@@ -7,7 +7,7 @@ const age = calculateAge(profile.birthDate);
 
 <template>
     <section id="about" aria-labelledby="about-title" class="page-container py-12">
-        <UiSectionHeading id="about-title" eyebrow="About me" title="Nice to meet you." tone="peach" />
+        <LocalSectionHeading id="about-title" eyebrow="About me" title="Nice to meet you." tone="peach" />
 
         <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
             <UiTile
@@ -32,7 +32,7 @@ const age = calculateAge(profile.birthDate);
                     loading="lazy"
                     class="size-full object-cover"
                 />
-                <UiImagePlaceholder v-else tone="sage" class="aspect-[4/3] size-full sm:aspect-auto" />
+                <LocalImagePlaceholder v-else tone="sage" class="aspect-[4/3] size-full sm:aspect-auto" />
             </div>
 
             <UiTile

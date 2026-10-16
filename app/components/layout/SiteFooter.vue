@@ -16,7 +16,7 @@ const currentYear = new Date().getFullYear();
                     </p>
                     <p class="mt-4 text-cream/70">Say hi on any of these, or come find me on the padel court.</p>
                 </div>
-                <UiSocialLinks v-reveal="100" inverted />
+                <LocalSocialLinks v-reveal="100" inverted />
             </div>
 
             <div

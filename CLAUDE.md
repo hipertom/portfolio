@@ -12,7 +12,9 @@ Eén statische pagina, geprerenderd met `nuxt generate`. Geen database, geen ser
 
 - Nuxt 4 (`app/`-map, `app/app.vue` is de enige pagina, geen router) + Tailwind 4 + TypeScript 6.x.
 - Auto-imports voor componenten, composables en utils. Componentnamen volgen het pad: `components/sections/Hero.vue`
-  is `<SectionsHero>`, `components/ui/ProjectCard.vue` is `<UiProjectCard>`.
+  is `<SectionsHero>`, `components/local/ProjectCard.vue` is `<LocalProjectCard>`.
+- Eigen bouwstenen van het portfolio staan in `components/local/` (`<Local…>`). De prefix `Ui` is gereserveerd
+  voor de layer, dus nooit een `components/ui/`-map in deze repo.
 - Content staat in getypte databestanden in `app/data/` (zie README), niet in componenten.
 - Codestijl: 4 spaties, puntkomma's, enkele quotes; ESLint + Prettier (`npm run lint`, `npm run format`).
 - Controleren: `npm run typecheck`, `npm run lint`, `npm run generate` (de HTML in `.output/public` moet alle secties bevatten).

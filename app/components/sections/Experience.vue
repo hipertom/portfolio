@@ -29,10 +29,15 @@ function markerClasses(experience: Experience, index: number): string {
         <div class="grid gap-12 lg:grid-cols-12 lg:gap-10">
             <div class="lg:col-span-5">
                 <div class="lg:sticky lg:top-32">
-                    <UiSectionHeading id="experience-title" eyebrow="Experience" title="Where I've worked." tone="sage">
+                    <LocalSectionHeading
+                        id="experience-title"
+                        eyebrow="Experience"
+                        title="Where I've worked."
+                        tone="sage"
+                    >
                         Almost a decade of building things, most of it with the same great team. Here's the short
                         version.
-                    </UiSectionHeading>
+                    </LocalSectionHeading>
                 </div>
             </div>
 

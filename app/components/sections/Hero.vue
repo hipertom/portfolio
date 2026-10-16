@@ -60,7 +60,7 @@ const [firstNavigationItem] = navigationItems;
                         Get to know me
                         <ArrowDown class="size-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
                     </a>
-                    <UiSocialLinks />
+                    <LocalSocialLinks />
                 </div>
             </div>
 

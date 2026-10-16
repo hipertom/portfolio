@@ -26,7 +26,7 @@ const kindLabels: Record<ProjectKind, string> = {
                 loading="lazy"
                 class="size-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <UiProjectArtwork
+            <LocalProjectArtwork
                 v-else
                 :artwork="project.artwork"
                 class="size-full transition-transform duration-700 ease-(--ease-gentle) group-hover:scale-105"

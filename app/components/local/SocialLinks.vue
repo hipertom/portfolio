@@ -18,7 +18,7 @@ withDefaults(defineProps<{ inverted?: boolean }>(), { inverted: false });
                         : 'bg-white/70 text-ink ring-ink/10 hover:bg-ink hover:text-cream'
                 "
             >
-                <UiBrandIcon :brand="link.brand" class="size-4 transition-transform group-hover:rotate-[-8deg]" />
+                <LocalBrandIcon :brand="link.brand" class="size-4 transition-transform group-hover:rotate-[-8deg]" />
                 {{ link.label }}
             </a>
         </li>
