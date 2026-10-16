@@ -1,6 +1,6 @@
 export type ProjectKind = 'work' | 'personal' | 'sport';
 
-export type ProjectArtwork = 'overlap' | 'arches' | 'squiggle' | 'elevation';
+export type ProjectArtwork = 'squiggle' | 'parcels' | 'elevation';
 
 export interface Project {
     title: string;
