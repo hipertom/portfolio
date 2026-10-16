@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
             'Working across the full stack of the Valicare platform, with a focus on reliable, well-tested code and close collaboration with the product team.',
     },
     {
-        roles: ['Team Lead Development', 'Senior Backend Developer'],
+        roles: ['Team Lead Development'],
         company: 'ZIGT Mediabureau',
         location: 'Hoofddorp',
         startDate: '2021-10',

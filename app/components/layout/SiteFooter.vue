@@ -22,7 +22,7 @@ const currentYear = new Date().getFullYear();
             <div
                 class="mt-14 flex flex-col-reverse gap-4 border-t border-cream/10 pt-6 text-sm text-cream/60 sm:flex-row sm:items-center sm:justify-between"
             >
-                <p>&copy; {{ currentYear }} {{ profile.fullName }} &middot; Made in {{ profile.city }}</p>
+                <p>&copy; {{ currentYear }} {{ profile.fullName }}</p>
                 <a
                     :href="`#${heroSectionId}`"
                     class="group inline-flex items-center gap-2 self-start font-medium text-cream/80 hover:text-cream"
