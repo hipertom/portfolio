@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RotateCcw } from '@lucide/vue';
 import { socialLinks } from '~/data/socialLinks';
 import type { TotalsPeriod } from '~/types/sport';
 
@@ -7,9 +6,9 @@ const { overview, isLoading, hasError, reload } = useSportOverview();
 
 const stravaLink = socialLinks.find(({ brand }) => brand === 'strava');
 
-const totalsPeriods: { period: TotalsPeriod; label: string }[] = [
-    { period: 'month', label: 'This month' },
-    { period: 'year', label: 'This year' },
+const totalsPeriods: { value: TotalsPeriod; label: string }[] = [
+    { value: 'month', label: 'This month' },
+    { value: 'year', label: 'This year' },
 ];
 const selectedPeriod = ref<TotalsPeriod>('month');
 
@@ -44,70 +43,38 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     Sport is how I clear my head. Running gives me headspace, the gym keeps me strong and padel is where
                     my competitive side comes out. Here's what I've been up to lately.
                 </LocalSectionHeading>
-                <a
+                <UiButton
                     v-if="stravaLink"
                     v-reveal="100"
-                    :href="stravaLink.url"
+                    :to="stravaLink.url"
                     target="_blank"
-                    rel="noopener"
-                    class="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-accent px-6 py-3 font-semibold text-ink shadow-soft transition duration-300 ease-(--ease-bounce) hover:-translate-y-0.5 hover:shadow-lift lg:self-auto"
+                    variant="accent"
+                    :icon="brandIcons.strava"
+                    class="shrink-0 self-start lg:self-auto"
                 >
-                    <LocalBrandIcon brand="strava" class="size-4 transition-transform group-hover:rotate-[-8deg]" />
                     Follow me on Strava
-                </a>
+                </UiButton>
             </div>
 
-            <div v-if="isLoading" class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-busy="true">
+            <div v-if="isLoading" class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
                 <span class="sr-only">Loading activities…</span>
-                <div v-for="index in 4" :key="index" class="h-36 animate-pulse rounded-3xl bg-white/60" />
-                <div
-                    v-for="index in 3"
-                    :key="`card-${index}`"
-                    class="h-44 animate-pulse rounded-3xl bg-white/60 lg:col-span-1"
-                    :class="{ 'lg:col-span-2': index === 1 }"
-                />
+                <UiSkeleton v-for="index in 3" :key="index" :lines="index === 1 ? 3 : 2" />
             </div>
 
-            <div
+            <UiErrorState
                 v-else-if="hasError"
-                class="mt-14 flex flex-col items-start gap-4 rounded-3xl bg-white p-8 shadow-soft sm:flex-row sm:items-center sm:justify-between"
+                class="mt-14"
                 role="alert"
+                title="Strava is taking a breather."
+                retry-label="Try again"
+                @retry="reload"
             >
-                <div>
-                    <p class="font-display text-xl font-semibold">Strava is taking a breather.</p>
-                    <p class="mt-1 text-ink-soft">I couldn't load my latest activities. Give it another go?</p>
-                </div>
-                <button
-                    type="button"
-                    class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-medium text-cream transition hover:-translate-y-0.5"
-                    @click="reload"
-                >
-                    <RotateCcw class="size-4" aria-hidden="true" />
-                    Try again
-                </button>
-            </div>
+                I couldn't load my latest activities. Give it another go?
+            </UiErrorState>
 
             <template v-else-if="overview">
                 <div class="mt-14">
-                    <div
-                        class="inline-flex rounded-full bg-white/70 p-1 ring-1 ring-ink/5"
-                        role="group"
-                        aria-label="Totals period"
-                    >
-                        <button
-                            v-for="option in totalsPeriods"
-                            :key="option.period"
-                            type="button"
-                            :aria-pressed="selectedPeriod === option.period"
-                            class="rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300"
-                            :class="
-                                selectedPeriod === option.period ? 'bg-ink text-cream' : 'text-ink-soft hover:text-ink'
-                            "
-                            @click="selectedPeriod = option.period"
-                        >
-                            {{ option.label }}
-                        </button>
-                    </div>
+                    <UiSegmented v-model="selectedPeriod" :options="totalsPeriods" label="Totals period" />
 
                     <div class="mt-5 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
                         <UiStatTile

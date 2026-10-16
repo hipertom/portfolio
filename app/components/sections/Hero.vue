@@ -52,14 +52,9 @@ const [firstNavigationItem] = navigationItems;
                 </p>
 
                 <div v-reveal="240" class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-6">
-                    <a
-                        v-if="firstNavigationItem"
-                        :href="`#${firstNavigationItem.sectionId}`"
-                        class="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-medium text-cream shadow-soft transition duration-300 ease-(--ease-bounce) hover:-translate-y-0.5 hover:shadow-lift"
-                    >
+                    <UiButton v-if="firstNavigationItem" :to="`#${firstNavigationItem.sectionId}`" :icon="ArrowDown">
                         Get to know me
-                        <ArrowDown class="size-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
-                    </a>
+                    </UiButton>
                     <LocalSocialLinks />
                 </div>
             </div>

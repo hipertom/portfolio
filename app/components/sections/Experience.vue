@@ -1,27 +1,19 @@
 <script setup lang="ts">
-import { ArrowUp, MapPin } from '@lucide/vue';
+import { MapPin } from '@lucide/vue';
 import { experiences } from '~/data/experience';
-import type { Experience } from '~/types/experience';
 
 function formatPeriod(startDate: string, endDate: string | null): string {
     return `${formatMonthYear(startDate)} – ${endDate ? formatMonthYear(endDate) : 'Now'}`;
 }
 
-function isCurrent(experience: Experience): boolean {
-    return experience.endDate === null;
-}
-
-function isPartOfSameTeam(index: number): boolean {
-    return Boolean(experiences[index]?.continuationNote || experiences[index - 1]?.continuationNote);
-}
-
-function markerClasses(experience: Experience, index: number): string {
-    if (isCurrent(experience)) {
-        return 'bg-accent';
-    }
-
-    return isPartOfSameTeam(index) ? 'bg-sage-deep' : 'bg-ink/30';
-}
+const timelineItems = experiences.map((experience) => ({
+    at: formatPeriod(experience.startDate, experience.endDate),
+    title: experience.roles.join(' + '),
+    meta: experience.company,
+    current: experience.endDate === null,
+    transition: experience.continuationNote,
+    experience,
+}));
 </script>
 
 <template>
@@ -41,46 +33,25 @@ function markerClasses(experience: Experience, index: number): string {
                 </div>
             </div>
 
-            <ol class="relative lg:col-span-7">
-                <li
-                    v-for="(experience, index) in experiences"
-                    :key="`${experience.company}-${experience.startDate}`"
-                    v-reveal="index * 60"
-                    class="relative pb-4 pl-10 last:pb-0 sm:pl-12"
-                >
-                    <span
-                        v-if="index < experiences.length - 1"
-                        class="absolute top-10 -bottom-10 left-3 -translate-x-1/2"
-                        :class="
-                            experience.continuationNote
-                                ? 'w-[3px] rounded-full bg-sage-deep'
-                                : 'border-l-2 border-dashed border-ink/15'
-                        "
-                        aria-hidden="true"
-                    />
-                    <span class="absolute top-7 left-0 z-10 grid size-6 place-items-center" aria-hidden="true">
-                        <span
-                            v-if="isCurrent(experience)"
-                            class="absolute size-full animate-glow rounded-full bg-accent/50"
-                        />
-                        <span
-                            class="relative size-3 rounded-full ring-4 ring-cream"
-                            :class="markerClasses(experience, index)"
-                        />
-                    </span>
-
+            <UiTimeline
+                v-reveal
+                :items="timelineItems"
+                spacious
+                surface="cream"
+                line-style="dashed"
+                class="lg:col-span-7"
+            >
+                <template #default="{ item: { at, experience }, current }">
                     <article
                         class="rounded-3xl p-6 transition duration-500 sm:p-7"
-                        :class="isCurrent(experience) ? 'bg-white shadow-soft ring-1 ring-ink/5' : 'hover:bg-white/70'"
+                        :class="current ? 'bg-white shadow-soft ring-1 ring-ink/5' : 'hover:bg-white/70'"
                     >
                         <div class="flex flex-wrap items-center justify-between gap-3">
                             <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-soft">
-                                <span class="font-semibold text-ink">
-                                    {{ formatPeriod(experience.startDate, experience.endDate) }}
-                                </span>
+                                <span class="font-semibold text-ink">{{ at }}</span>
                                 <span>{{ formatTenure(experience.startDate, experience.endDate) }}</span>
                             </p>
-                            <UiPill v-if="isCurrent(experience)" tone="butter">Current</UiPill>
+                            <UiPill v-if="current" tone="butter">Current</UiPill>
                         </div>
                         <h3 class="mt-3 text-2xl leading-tight font-semibold">
                             {{ experience.roles[0] }}
@@ -101,21 +72,8 @@ function markerClasses(experience: Experience, index: number): string {
                         </p>
                         <p class="mt-4 leading-relaxed text-ink-soft">{{ experience.description }}</p>
                     </article>
-
-                    <p
-                        v-if="experience.continuationNote"
-                        class="relative my-3 pl-6 text-sm leading-relaxed text-ink-soft sm:pl-7"
-                    >
-                        <span
-                            class="absolute top-1/2 -left-10 z-10 grid size-6 -translate-y-1/2 place-items-center rounded-full bg-sage-soft text-ink ring-4 ring-cream sm:-left-12"
-                            aria-hidden="true"
-                        >
-                            <ArrowUp class="size-3.5" />
-                        </span>
-                        {{ experience.continuationNote }}
-                    </p>
-                </li>
-            </ol>
+                </template>
+            </UiTimeline>
         </div>
     </section>
 </template>
