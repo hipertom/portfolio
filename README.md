@@ -47,10 +47,6 @@ has no theme of its own; the rules are in the layer's `docs/design-system.md`.
 The sport section reads a `SportOverview` (see `app/types/sport.ts`) through a `SportOverviewProvider`.
 For now `app/services/sport/index.ts` uses dummy data from `app/data/dummySportOverview.ts`.
 
-Strava credentials must never reach the browser. The plan is a small serverless function (DigitalOcean Functions)
-that exchanges the refresh token, fetches recent activities, calculates the totals and returns a `SportOverview`.
-Connecting it means adding an HTTP provider and swapping it in `app/services/sport/index.ts`.
-
-## Deployment
-
-Hosted as a static site on DigitalOcean App Platform. Build command `npm run build`, output directory `dist`.
+Strava credentials must never reach the browser. The plan is a Nuxt server route on Vercel that exchanges the refresh
+token, fetches recent activities, calculates the totals and returns a `SportOverview`. Connecting it means adding an
+HTTP provider and swapping it in `app/services/sport/index.ts`.
