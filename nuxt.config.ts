@@ -7,9 +7,18 @@ export default defineNuxtConfig({
     extends: ['warm-sorbet'],
     compatibilityDate: '2026-10-01',
     devtools: { enabled: true },
-    // A single static page: prerendered at build time (`npm run generate`).
-    nitro: {
-        prerender: { routes: ['/'] },
+    // Rendered with the Strava data baked in and refreshed in the background at most once an hour (Vercel ISR).
+    routeRules: {
+        '/': { isr: 3600 },
+        '/api/sport-overview': { isr: 3600 },
+    },
+    runtimeConfig: {
+        databaseUrl: '',
+        strava: {
+            clientId: '',
+            clientSecret: '',
+            refreshToken: '',
+        },
     },
     app: {
         head: {
