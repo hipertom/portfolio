@@ -32,6 +32,7 @@ const pinPositions = ['top-3 left-3', 'top-3 right-3', 'bottom-3 left-3', 'botto
                 {{ formatKilometres(race.distanceInMeters) }} km &middot;
                 {{ formatPace(race.distanceInMeters, race.movingTimeInSeconds) }}
             </p>
+            <SportStravaLink :activity-id="race.id" class="mt-4 inline-block" />
         </div>
     </article>
 </template>

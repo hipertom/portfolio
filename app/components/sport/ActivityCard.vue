@@ -47,5 +47,7 @@ const metrics = computed(() => {
                 <dd class="mt-0.5 font-semibold tabular-nums">{{ metric.value }}</dd>
             </div>
         </dl>
+
+        <SportStravaLink :activity-id="activity.id" class="-mt-2 self-start" />
     </article>
 </template>

@@ -5,6 +5,7 @@ import type { TotalsPeriod } from '#shared/types/sport';
 const { overview, isLoading, hasError, reload } = useSportOverview();
 
 const stravaLink = socialLinks.find(({ brand }) => brand === 'strava');
+const poweredByStravaLogoUrl = '/strava/powered-by-strava.svg';
 
 const totalsPeriods: { value: TotalsPeriod; label: string }[] = [
     { value: 'month', label: 'This month' },
@@ -120,6 +121,14 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                         Nothing logged yet. Probably resting, or out on a run without a watch.
                     </p>
                 </div>
+
+                <img
+                    :src="poweredByStravaLogoUrl"
+                    alt="Powered by Strava"
+                    width="162"
+                    height="30"
+                    class="mt-12 ml-auto block h-6 w-auto"
+                />
             </template>
         </div>
     </section>
