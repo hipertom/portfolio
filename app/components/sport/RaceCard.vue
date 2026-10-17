@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Activity } from '~/types/sport';
+import type { Activity } from '#shared/types/sport';
 
 defineProps<{ race: Activity }>();
 

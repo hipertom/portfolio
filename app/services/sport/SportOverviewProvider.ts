@@ -1,4 +1,4 @@
-import type { SportOverview } from '~/types/sport';
+import type { SportOverview } from '#shared/types/sport';
 
 export interface SportOverviewProvider {
     fetchSportOverview(): Promise<SportOverview>;

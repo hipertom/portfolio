@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Activity } from '~/types/sport';
+import type { Activity } from '#shared/types/sport';
 
 const { activity } = defineProps<{ activity: Activity }>();
 
 const category = computed(() => getSportCategory(activity.sportType));
-const categoryDetails = computed(() => sportCategoryDetails[category.value]);
+const categoryDetails = computed(() => getSportCategoryDetails(activity.sportType));
 
 const metrics = computed(() => {
     const duration = { label: 'Time', value: formatDuration(activity.movingTimeInSeconds) };

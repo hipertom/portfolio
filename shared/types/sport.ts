@@ -1,13 +1,11 @@
-export type SportType = 'Run' | 'TrailRun' | 'Padel' | 'WeightTraining' | 'Workout' | 'Ride' | 'Walk' | 'Hike';
-
-export type SportCategory = 'running' | 'padel' | 'strength' | 'cycling' | 'walking';
+export type SportCategory = 'running' | 'padel' | 'strength' | 'cycling' | 'walking' | 'other';
 
 export type TotalsPeriod = 'month' | 'year';
 
 export interface Activity {
     id: number;
     name: string;
-    sportType: SportType;
+    sportType: string;
     startDate: string;
     distanceInMeters: number;
     movingTimeInSeconds: number;

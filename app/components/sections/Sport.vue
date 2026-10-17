@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { socialLinks } from '~/data/socialLinks';
-import type { TotalsPeriod } from '~/types/sport';
+import type { TotalsPeriod } from '#shared/types/sport';
 
 const { overview, isLoading, hasError, reload } = useSportOverview();
 

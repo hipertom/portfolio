@@ -1,22 +1,11 @@
-import type { SportCategory, SportType } from '~/types/sport';
+import type { SportCategory } from '#shared/types/sport';
 
 interface SportCategoryDetails {
     label: string;
     tone: Tone;
 }
 
-const sportCategoryBySportType: Record<SportType, SportCategory> = {
-    Run: 'running',
-    TrailRun: 'running',
-    Padel: 'padel',
-    WeightTraining: 'strength',
-    Workout: 'strength',
-    Ride: 'cycling',
-    Walk: 'walking',
-    Hike: 'walking',
-};
-
-export const sportCategoryDetails: Record<SportCategory, SportCategoryDetails> = {
+export const sportCategoryDetails: Record<Exclude<SportCategory, 'other'>, SportCategoryDetails> = {
     running: { label: 'Run', tone: 'peach' },
     padel: { label: 'Padel', tone: 'butter' },
     strength: { label: 'Strength', tone: 'sage' },
@@ -24,6 +13,18 @@ export const sportCategoryDetails: Record<SportCategory, SportCategoryDetails> =
     walking: { label: 'Walk', tone: 'sage' },
 };
 
-export function getSportCategory(sportType: SportType): SportCategory {
-    return sportCategoryBySportType[sportType];
+export function getSportCategoryDetails(sportType: string): SportCategoryDetails {
+    const category = getSportCategory(sportType);
+
+    if (category === 'other') {
+        return { label: humanizeSportType(sportType), tone: 'cream' };
+    }
+
+    return sportCategoryDetails[category];
+}
+
+function humanizeSportType(sportType: string): string {
+    const words = sportType.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+
+    return words.charAt(0).toUpperCase() + words.slice(1);
 }

@@ -1,6 +1,6 @@
 import { sportOverviewProvider } from '~/services/sport';
 import type { SportOverviewProvider } from '~/services/sport/SportOverviewProvider';
-import type { SportOverview } from '~/types/sport';
+import type { SportOverview } from '#shared/types/sport';
 
 export function useSportOverview(provider: SportOverviewProvider = sportOverviewProvider) {
     const overview = shallowRef<SportOverview | null>(null);

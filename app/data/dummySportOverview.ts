@@ -1,4 +1,4 @@
-import type { Activity, SportOverview } from '~/types/sport';
+import type { Activity, SportOverview } from '#shared/types/sport';
 
 function daysAgo(days: number, hour: number): string {
     const date = new Date();
