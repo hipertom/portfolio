@@ -18,25 +18,25 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@lucide/vue": "^1.57.0",
+    "@lucide/vue": "^1.61.0",
     "@vueuse/core": "^15.0.0",
-    "nuxt": "^4.6.1",
-    "vue": "^3.5.43",
+    "nuxt": "^4.6.2",
+    "vue": "^3.5.44",
     "warm-sorbet": "github:hipertom/warm-sorbet#v0.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.5",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.9.0",
-    "eslint": "^10.11.0",
+    "eslint": "^10.13.0",
     "eslint-plugin-vue": "^10.11.1",
     "globals": "^17.13.0",
     "jiti": "^2.7.0",
-    "prettier": "^3.9.9",
+    "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "~6.0",
-    "typescript-eslint": "^8.71.0",
-    "vue-tsc": "^3.3.12"
+    "typescript-eslint": "^8.72.0",
+    "vue-tsc": "^3.3.13"
   }
 }
