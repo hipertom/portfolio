@@ -22,7 +22,7 @@
     "@vueuse/core": "^15.0.0",
     "nuxt": "^4.6.2",
     "vue": "^3.5.44",
-    "warm-sorbet": "github:hipertom/warm-sorbet#v0.2.0"
+    "warm-sorbet": "github:hipertom/warm-sorbet#v0.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
