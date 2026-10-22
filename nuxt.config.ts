@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     extends: ['warm-sorbet'],
     compatibilityDate: '2026-10-01',
     devtools: { enabled: true },
-    modules: ['@vercel/speed-insights'],
+    modules: ['@vercel/analytics', '@vercel/speed-insights'],
     // A single static page: prerendered at build time (`npm run generate`).
     nitro: {
         prerender: { routes: ['/'] },
