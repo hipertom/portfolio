@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@lucide/vue": "^1.61.0",
+    "@vercel/speed-insights": "^2.0.0",
     "@vueuse/core": "^15.0.0",
     "nuxt": "^4.6.2",
     "vue": "^3.5.44",
@@ -38,5 +39,10 @@
     "typescript": "~6.0",
     "typescript-eslint": "^8.72.0",
     "vue-tsc": "^3.3.13"
+  },
+  "overrides": {
+    "@vercel/speed-insights": {
+      "vue-router": "^5.4.0"
+    }
   }
 }
