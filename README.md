@@ -58,4 +58,4 @@ Configuration lives in environment variables (see `.env.example`): `NUXT_STRAVA_
 `NUXT_STRAVA_CLIENT_SECRET`, `NUXT_STRAVA_REFRESH_TOKEN` and `NUXT_DATABASE_URL`.
 
 The Strava API requires a Strava subscription for Standard Tier developers. Strava data must be shown with a
-"View on Strava" link and the "Powered by Strava" logo (`public/strava/powered-by-strava.svg`).
+"View on Strava" link and the "Powered by Strava" logo (`public/strava/`).

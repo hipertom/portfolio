@@ -5,7 +5,7 @@ import type { TotalsPeriod } from '#shared/types/sport';
 const { overview, isLoading, hasError, reload } = useSportOverview();
 
 const stravaLink = socialLinks.find(({ brand }) => brand === 'strava');
-const poweredByStravaLogoUrl = '/strava/powered-by-strava.svg';
+const poweredByStravaLogoUrl = '/strava/api_logo_pwrdBy_strava_horiz_orange.svg';
 
 const totalsPeriods: { value: TotalsPeriod; label: string }[] = [
     { value: 'month', label: 'This month' },
@@ -125,9 +125,9 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                 <img
                     :src="poweredByStravaLogoUrl"
                     alt="Powered by Strava"
-                    width="162"
-                    height="30"
-                    class="mt-12 ml-auto block h-6 w-auto"
+                    width="365"
+                    height="37"
+                    class="mt-12 ml-auto block h-4 w-auto"
                 />
             </template>
         </div>
