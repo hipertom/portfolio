@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatDuration } from './formatDuration';
+import { formatDuration, formatWholeHoursRoundedUp } from './formatDuration';
 
 describe('formatDuration', () => {
     it('rounds up to the next whole minute', () => {
@@ -10,5 +10,12 @@ describe('formatDuration', () => {
     it('keeps whole minutes as they are', () => {
         expect(formatDuration(30 * 60)).toBe('30m');
         expect(formatDuration(59 * 60 + 30)).toBe('1h');
+    });
+});
+
+describe('formatWholeHoursRoundedUp', () => {
+    it('rounds total time up to whole hours', () => {
+        expect(formatWholeHoursRoundedUp(18 * 3600 + 60)).toBe('19');
+        expect(formatWholeHoursRoundedUp(2 * 3600)).toBe('2');
     });
 });

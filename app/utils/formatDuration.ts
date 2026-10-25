@@ -27,6 +27,6 @@ export function formatClockTime(totalSeconds: number): string {
     return `${hours}:${String(minutes).padStart(2, '0')}:${paddedSeconds}`;
 }
 
-export function formatHours(totalSeconds: number): string {
-    return new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 }).format(totalSeconds / 3600);
+export function formatWholeHoursRoundedUp(totalSeconds: number): string {
+    return new Intl.NumberFormat('en-GB').format(Math.ceil(totalSeconds / 3600));
 }
