@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import type { Activity } from '#shared/types/sport';
 
-defineProps<{ race: Activity }>();
+const { race } = defineProps<{ race: Activity }>();
 
 const pinPositions = ['top-3 left-3', 'top-3 right-3', 'bottom-3 left-3', 'bottom-3 right-3'];
+
+const distanceName = computed(() => getRaceDistanceName(race.distanceInMeters));
+const results = computed(() => [
+    { label: 'Finish time', value: formatClockTime(race.movingTimeInSeconds) },
+    { label: 'Pace', value: formatPace(race.distanceInMeters, race.movingTimeInSeconds) },
+]);
 </script>
 
 <template>
@@ -24,15 +30,21 @@ const pinPositions = ['top-3 left-3', 'top-3 right-3', 'bottom-3 left-3', 'botto
             <h4 class="mt-1 truncate font-display text-xl font-semibold">{{ race.name }}</h4>
         </header>
         <div class="px-8 pt-5 pb-7">
-            <p class="text-xs font-medium text-ink-soft">Finish time</p>
-            <p class="font-display text-5xl font-bold tracking-tight tabular-nums">
-                {{ formatClockTime(race.movingTimeInSeconds) }}
+            <p class="flex items-baseline gap-1.5 font-display">
+                <span class="text-6xl font-bold tracking-tight tabular-nums">
+                    {{ formatKilometres(race.distanceInMeters) }}
+                </span>
+                <span class="text-2xl font-semibold">km</span>
             </p>
-            <p class="mt-3 text-sm font-medium text-ink-soft">
-                {{ formatKilometres(race.distanceInMeters) }} km &middot;
-                {{ formatPace(race.distanceInMeters, race.movingTimeInSeconds) }}
-            </p>
-            <SportStravaLink :activity-id="race.id" class="mt-4 inline-block" />
+            <UiPill v-if="distanceName" tone="butter" class="mt-2">{{ distanceName }}</UiPill>
+
+            <dl class="mt-5 grid grid-cols-2 gap-4 border-t border-ink/10 pt-4">
+                <div v-for="result in results" :key="result.label">
+                    <dt class="text-xs font-medium text-ink-soft">{{ result.label }}</dt>
+                    <dd class="mt-0.5 font-display text-xl font-bold tabular-nums">{{ result.value }}</dd>
+                </div>
+            </dl>
+            <SportStravaLink :activity-id="race.id" class="mt-5 inline-block" />
         </div>
     </article>
 </template>
