@@ -9,21 +9,34 @@ const isRun = computed(() => category.value === 'running');
 const title = computed(() => (isRun.value ? activity.name : sportTypeLabel.value));
 
 const metrics = computed(() => {
+    const distance = { label: 'Distance', value: `${formatKilometres(activity.distanceInMeters)} km` };
     const duration = { label: 'Time', value: formatDuration(activity.movingTimeInSeconds) };
+    const heartRate =
+        activity.averageHeartRate === null
+            ? []
+            : [{ label: 'Avg HR', value: formatHeartRate(activity.averageHeartRate) }];
 
-    if (isRun.value) {
+    if (category.value === 'running') {
         return [
-            { label: 'Distance', value: `${formatKilometres(activity.distanceInMeters)} km` },
+            distance,
             { label: 'Pace', value: formatPace(activity.distanceInMeters, activity.movingTimeInSeconds) },
             duration,
         ];
     }
 
-    if (activity.averageHeartRate === null) {
-        return [duration];
+    if (category.value === 'cycling') {
+        return [
+            distance,
+            { label: 'Speed', value: formatSpeed(activity.distanceInMeters, activity.movingTimeInSeconds) },
+            duration,
+        ];
     }
 
-    return [duration, { label: 'Avg heart rate', value: formatHeartRate(activity.averageHeartRate) }];
+    if (category.value === 'walking') {
+        return [distance, ...heartRate, duration];
+    }
+
+    return [duration, ...heartRate];
 });
 </script>
 
