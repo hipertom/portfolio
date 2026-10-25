@@ -34,29 +34,27 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
 <template>
     <section id="sport" aria-labelledby="sport-title" class="page-container py-12">
         <div class="rounded-[2.5rem] bg-sage-soft px-5 py-10 sm:px-10 sm:py-12 lg:px-14">
-            <div class="flex flex-col-reverse gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
-                <LocalSectionHeading
-                    id="sport-title"
-                    wide
-                    eyebrow="Off the clock"
-                    title="Happiest when I'm moving."
-                    tone="white"
-                >
-                    Sport is how I clear my head. Running gives me headspace, the gym keeps me strong and padel is where
-                    my competitive side comes out. Here's what I've been up to lately.
-                </LocalSectionHeading>
-                <UiButton
-                    v-if="stravaLink"
-                    v-reveal="100"
-                    :to="stravaLink.url"
-                    target="_blank"
-                    variant="accent"
-                    :icon="brandIcons.strava"
-                    class="shrink-0 self-start"
-                >
-                    Follow me on Strava
-                </UiButton>
-            </div>
+            <LocalSectionHeading
+                id="sport-title"
+                wide
+                eyebrow="Off the clock"
+                title="Happiest when I'm moving."
+                tone="white"
+            >
+                <template #action>
+                    <UiButton
+                        v-if="stravaLink"
+                        :to="stravaLink.url"
+                        target="_blank"
+                        variant="accent"
+                        :icon="brandIcons.strava"
+                    >
+                        Follow me on Strava
+                    </UiButton>
+                </template>
+                Sport is how I clear my head. Running gives me headspace, the gym keeps me strong and padel is where my
+                competitive side comes out. Here's what I've been up to lately.
+            </LocalSectionHeading>
 
             <div v-if="isLoading" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
                 <span class="sr-only">Loading activities…</span>
