@@ -4,7 +4,9 @@ import type { Activity } from '#shared/types/sport';
 const { activity } = defineProps<{ activity: Activity }>();
 
 const category = computed(() => getSportCategory(activity.sportType));
-const categoryDetails = computed(() => getSportCategoryDetails(activity.sportType));
+const sportTypeLabel = computed(() => getSportTypeLabel(activity.sportType));
+const isRun = computed(() => category.value === 'running');
+const title = computed(() => (isRun.value ? activity.name : sportTypeLabel.value));
 
 const metrics = computed(() => {
     const duration = { label: 'Time', value: formatDuration(activity.movingTimeInSeconds) };
@@ -28,14 +30,14 @@ const metrics = computed(() => {
         <header class="flex items-start gap-4">
             <span
                 class="grid size-12 shrink-0 place-items-center rounded-2xl"
-                :class="TONE_SURFACE[categoryDetails.tone]"
+                :class="TONE_SURFACE[sportCategoryTones[category]]"
             >
                 <SportIcon :category="category" class="size-6" />
             </span>
             <div class="min-w-0">
-                <h4 class="truncate font-display text-lg font-semibold">{{ activity.name }}</h4>
+                <h4 class="truncate font-display text-lg font-semibold">{{ title }}</h4>
                 <p class="text-sm text-ink-soft">
-                    {{ categoryDetails.label }} &middot;
+                    <template v-if="isRun">{{ sportTypeLabel }} &middot; </template>
                     <time :datetime="activity.startDate">{{ formatRelativeDay(activity.startDate) }}</time>
                 </p>
             </div>
