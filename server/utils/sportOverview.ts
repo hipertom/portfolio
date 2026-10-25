@@ -44,6 +44,7 @@ function toDatedActivity(stravaActivity: StravaSummaryActivity): DatedActivity {
             distanceInMeters: stravaActivity.distance,
             movingTimeInSeconds: stravaActivity.moving_time,
             elevationGainInMeters: stravaActivity.total_elevation_gain,
+            averageHeartRate: stravaActivity.average_heartrate ?? null,
             isRace: raceWorkoutTypes.has(stravaActivity.workout_type ?? -1),
         },
         localDate: stravaActivity.start_date_local,

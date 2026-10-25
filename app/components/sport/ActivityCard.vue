@@ -11,15 +11,19 @@ const title = computed(() => (isRun.value ? activity.name : sportTypeLabel.value
 const metrics = computed(() => {
     const duration = { label: 'Time', value: formatDuration(activity.movingTimeInSeconds) };
 
-    if (activity.distanceInMeters === 0) {
+    if (isRun.value) {
+        return [
+            { label: 'Distance', value: `${formatKilometres(activity.distanceInMeters)} km` },
+            { label: 'Pace', value: formatPace(activity.distanceInMeters, activity.movingTimeInSeconds) },
+            duration,
+        ];
+    }
+
+    if (activity.averageHeartRate === null) {
         return [duration];
     }
 
-    return [
-        { label: 'Distance', value: `${formatKilometres(activity.distanceInMeters)} km` },
-        { label: 'Pace', value: formatPace(activity.distanceInMeters, activity.movingTimeInSeconds) },
-        duration,
-    ];
+    return [duration, { label: 'Avg heart rate', value: formatHeartRate(activity.averageHeartRate) }];
 });
 </script>
 

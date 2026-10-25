@@ -13,6 +13,7 @@ export interface StravaSummaryActivity {
     moving_time: number;
     total_elevation_gain: number;
     workout_type: number | null;
+    average_heartrate?: number;
 }
 
 interface StravaTokenResponse {

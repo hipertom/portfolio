@@ -6,10 +6,18 @@ const { race } = defineProps<{ race: Activity }>();
 const pinPositions = ['top-3 left-3', 'top-3 right-3', 'bottom-3 left-3', 'bottom-3 right-3'];
 
 const distanceName = computed(() => getRaceDistanceName(race.distanceInMeters));
-const results = computed(() => [
-    { label: 'Finish time', value: formatClockTime(race.movingTimeInSeconds) },
-    { label: 'Pace', value: formatPace(race.distanceInMeters, race.movingTimeInSeconds) },
-]);
+const results = computed(() => {
+    const finishTimeAndPace = [
+        { label: 'Finish time', value: formatClockTime(race.movingTimeInSeconds) },
+        { label: 'Pace', value: formatPace(race.distanceInMeters, race.movingTimeInSeconds) },
+    ];
+
+    if (race.averageHeartRate === null) {
+        return finishTimeAndPace;
+    }
+
+    return [...finishTimeAndPace, { label: 'Avg heart rate', value: formatHeartRate(race.averageHeartRate) }];
+});
 </script>
 
 <template>

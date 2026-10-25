@@ -15,6 +15,7 @@ function stravaActivity(overrides: Partial<StravaSummaryActivity>): StravaSummar
         moving_time: 3_000,
         total_elevation_gain: 20,
         workout_type: null,
+        average_heartrate: 148.6,
         ...overrides,
     };
 }
@@ -32,9 +33,16 @@ describe('buildSportOverview', () => {
                 distanceInMeters: 10_000,
                 movingTimeInSeconds: 3_000,
                 elevationGainInMeters: 20,
+                averageHeartRate: 148.6,
                 isRace: false,
             },
         ]);
+    });
+
+    it('leaves the average heart rate empty when it was not measured', () => {
+        const { recentActivities } = buildSportOverview([stravaActivity({ average_heartrate: undefined })], now);
+
+        expect(recentActivities[0]?.averageHeartRate).toBeNull();
     });
 
     it('lists the latest six activities, newest first', () => {

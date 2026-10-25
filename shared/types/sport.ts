@@ -10,6 +10,7 @@ export interface Activity {
     distanceInMeters: number;
     movingTimeInSeconds: number;
     elevationGainInMeters: number;
+    averageHeartRate: number | null;
     isRace: boolean;
 }
 

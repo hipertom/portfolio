@@ -8,8 +8,10 @@ function daysAgo(days: number, hour: number): string {
     return date.toISOString();
 }
 
-function createActivity(activity: Omit<Activity, 'elevationGainInMeters' | 'isRace'> & Partial<Activity>): Activity {
-    return { elevationGainInMeters: 0, isRace: false, ...activity };
+function createActivity(
+    activity: Omit<Activity, 'elevationGainInMeters' | 'isRace' | 'averageHeartRate'> & Partial<Activity>,
+): Activity {
+    return { elevationGainInMeters: 0, isRace: false, averageHeartRate: 132, ...activity };
 }
 
 export function createDummySportOverview(): SportOverview {
