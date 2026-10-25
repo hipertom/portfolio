@@ -7,7 +7,7 @@ function splitSeconds(totalSeconds: number) {
 }
 
 export function formatDuration(totalSeconds: number): string {
-    const { hours, minutes } = splitSeconds(totalSeconds);
+    const { hours, minutes } = splitSeconds(Math.ceil(totalSeconds / 60) * 60);
 
     if (hours === 0) {
         return `${minutes}m`;
