@@ -8,8 +8,8 @@ const stravaLink = socialLinks.find(({ brand }) => brand === 'strava');
 const poweredByStravaLogoUrl = '/strava/api_logo_pwrdBy_strava_horiz_orange.svg';
 
 const totalsPeriods: { value: TotalsPeriod; label: string }[] = [
-    { value: 'month', label: 'This month' },
     { value: 'year', label: 'This year' },
+    { value: 'month', label: 'This month' },
 ];
 const selectedPeriod = ref<TotalsPeriod>('month');
 
@@ -34,9 +34,10 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
 <template>
     <section id="sport" aria-labelledby="sport-title" class="page-container py-12">
         <div class="rounded-[2.5rem] bg-sage-soft px-5 py-10 sm:px-10 sm:py-12 lg:px-14">
-            <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div class="flex flex-col-reverse gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
                 <LocalSectionHeading
                     id="sport-title"
+                    wide
                     eyebrow="Off the clock"
                     title="Happiest when I'm moving."
                     tone="white"
@@ -51,7 +52,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     target="_blank"
                     variant="accent"
                     :icon="brandIcons.strava"
-                    class="shrink-0 self-start lg:self-auto"
+                    class="shrink-0 self-start"
                 >
                     Follow me on Strava
                 </UiButton>

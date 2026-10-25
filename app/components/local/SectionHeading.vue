@@ -1,9 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ id: string; eyebrow: string; title: string; tone?: Tone }>(), { tone: 'butter' });
+withDefaults(defineProps<{ id: string; eyebrow: string; title: string; tone?: Tone; wide?: boolean }>(), {
+    tone: 'butter',
+    wide: false,
+});
 </script>
 
 <template>
-    <header v-reveal class="max-w-2xl">
+    <header v-reveal :class="wide ? 'max-w-4xl' : 'max-w-2xl'">
         <UiPill :tone="tone">{{ eyebrow }}</UiPill>
         <h2 :id="id" class="mt-4 text-heading font-semibold">{{ title }}</h2>
         <div v-if="$slots.default" class="mt-5 text-lg leading-relaxed text-ink-soft">
