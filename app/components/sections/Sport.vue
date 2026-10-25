@@ -33,7 +33,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
 
 <template>
     <section id="sport" aria-labelledby="sport-title" class="page-container py-12">
-        <div class="rounded-[2.5rem] bg-sage-soft px-5 py-14 sm:px-10 sm:py-20 lg:px-14">
+        <div class="rounded-[2.5rem] bg-sage-soft px-5 py-10 sm:px-10 sm:py-12 lg:px-14">
             <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
                 <LocalSectionHeading
                     id="sport-title"
@@ -57,14 +57,14 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                 </UiButton>
             </div>
 
-            <div v-if="isLoading" class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
+            <div v-if="isLoading" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
                 <span class="sr-only">Loading activities…</span>
                 <UiSkeleton v-for="index in 3" :key="index" :lines="index === 1 ? 3 : 2" />
             </div>
 
             <UiErrorState
                 v-else-if="hasError"
-                class="mt-14"
+                class="mt-12"
                 role="alert"
                 title="Strava is taking a breather."
                 retry-label="Try again"
@@ -74,7 +74,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
             </UiErrorState>
 
             <template v-else-if="overview">
-                <div class="mt-14">
+                <div class="mt-12">
                     <UiSegmented v-model="selectedPeriod" :options="totalsPeriods" label="Totals period" />
 
                     <div class="mt-5 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
@@ -87,7 +87,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     </div>
                 </div>
 
-                <div v-if="overview.recentRaces.length" class="mt-16">
+                <div v-if="overview.recentRaces.length" class="mt-12">
                     <h3 class="text-2xl font-semibold">Race results</h3>
                     <ul
                         class="-mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 [scrollbar-width:none] gap-5 overflow-x-auto px-5 py-3 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0"
@@ -103,7 +103,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     </ul>
                 </div>
 
-                <div class="mt-16">
+                <div class="mt-12">
                     <h3 class="text-2xl font-semibold">Latest activities</h3>
                     <ul
                         v-if="hasActivities"
@@ -127,7 +127,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     alt="Powered by Strava"
                     width="365"
                     height="37"
-                    class="mt-12 ml-auto block h-4 w-auto"
+                    class="mt-10 ml-auto block h-4 w-auto sm:mt-12"
                 />
             </template>
         </div>
