@@ -16,7 +16,7 @@ const results = computed(() => {
         return finishTimeAndPace;
     }
 
-    return [...finishTimeAndPace, { label: 'Avg heart rate', value: formatHeartRate(race.averageHeartRate) }];
+    return [...finishTimeAndPace, { label: 'Avg HR', value: formatHeartRate(race.averageHeartRate) }];
 });
 </script>
 

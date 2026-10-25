@@ -11,7 +11,7 @@ const totalsPeriods: { value: TotalsPeriod; label: string }[] = [
     { value: 'year', label: 'This year' },
     { value: 'month', label: 'This month' },
 ];
-const selectedPeriod = ref<TotalsPeriod>('month');
+const selectedPeriod = ref<TotalsPeriod>('year');
 
 const statTiles = computed(() => {
     if (!overview.value) {
@@ -21,8 +21,18 @@ const statTiles = computed(() => {
     const totals = overview.value.totals[selectedPeriod.value];
 
     return [
-        { label: 'Running', value: formatKilometres(totals.runDistanceInMeters, 0), unit: 'km', tone: 'peach' },
-        { label: 'Time active', value: formatHours(totals.activeTimeInSeconds), unit: 'hrs', tone: 'butter' },
+        {
+            label: 'Running',
+            value: formatWholeKilometresRoundedUp(totals.runDistanceInMeters),
+            unit: 'km',
+            tone: 'peach',
+        },
+        {
+            label: 'Time active',
+            value: formatWholeHoursRoundedUp(totals.activeTimeInSeconds),
+            unit: 'hrs',
+            tone: 'butter',
+        },
         { label: 'Padel sessions', value: String(totals.padelSessionCount), tone: 'white' },
         { label: 'Gym sessions', value: String(totals.strengthSessionCount), tone: 'ink' },
     ] as const;

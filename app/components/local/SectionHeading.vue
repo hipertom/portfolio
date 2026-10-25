@@ -11,7 +11,7 @@ withDefaults(defineProps<{ id: string; eyebrow: string; title: string; tone?: To
             <UiPill :tone="tone">{{ eyebrow }}</UiPill>
             <slot name="action" />
         </div>
-        <h2 :id="id" class="mt-4 text-heading font-semibold">{{ title }}</h2>
+        <h2 :id="id" class="mt-4 max-w-2xl text-heading font-semibold">{{ title }}</h2>
         <div v-if="$slots.default" class="mt-5 text-lg leading-relaxed text-ink-soft">
             <slot />
         </div>
