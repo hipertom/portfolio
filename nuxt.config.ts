@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     extends: ['warm-sorbet'],
     compatibilityDate: '2026-10-01',
     devtools: { enabled: true },
+    modules: ['@vercel/analytics', '@vercel/speed-insights'],
     // Rendered with the Strava data baked in and refreshed in the background at most once an hour (Vercel ISR).
     routeRules: {
         '/': { isr: 3600 },

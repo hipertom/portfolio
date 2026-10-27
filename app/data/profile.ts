@@ -1,3 +1,4 @@
+import aboutPhotoUrl from '~/assets/images/tom-grootjans-portret.jpeg';
 import type { Profile } from '~/types/profile';
 
 const firstName = 'Tom';
@@ -20,4 +21,5 @@ export const profile: Profile = {
         "Outside of work you'll find me on the padel court, in the gym or out on a run, usually with a new goal on the horizon.",
     ],
     interests: ['Running', 'Padel', 'Strength training', 'Building things'],
+    aboutPhotoUrl,
 };
