@@ -16,7 +16,7 @@
     "format": "prettier --write app/"
   },
   "engines": {
-    "node": ">=24"
+    "node": "24.x"
   },
   "dependencies": {
     "@lucide/vue": "^1.62.0",
