@@ -1,26 +1,17 @@
-import { sportOverviewProvider } from '~/services/sport';
-import type { SportOverviewProvider } from '~/services/sport/SportOverviewProvider';
-import type { SportOverview } from '~/types/sport';
+import type { SportOverview } from '#shared/types/sport';
 
-export function useSportOverview(provider: SportOverviewProvider = sportOverviewProvider) {
-    const overview = shallowRef<SportOverview | null>(null);
-    const isLoading = ref(true);
-    const hasError = ref(false);
+export function useSportOverview() {
+    const {
+        data: overview,
+        status,
+        error,
+        refresh,
+    } = useFetch<SportOverview>('/api/sport-overview', {
+        key: 'sport-overview',
+    });
 
-    async function loadOverview() {
-        isLoading.value = true;
-        hasError.value = false;
+    const isLoading = computed(() => status.value === 'pending');
+    const hasError = computed(() => Boolean(error.value));
 
-        try {
-            overview.value = await provider.fetchSportOverview();
-        } catch {
-            hasError.value = true;
-        } finally {
-            isLoading.value = false;
-        }
-    }
-
-    onMounted(loadOverview);
-
-    return { overview, isLoading, hasError, reload: loadOverview };
+    return { overview, isLoading, hasError, reload: refresh };
 }

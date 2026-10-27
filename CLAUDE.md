@@ -1,7 +1,8 @@
 # Portfolio: afspraken voor Claude
 
 De persoonlijke one-pager van Tom ([tomgrootjans.nl](https://tomgrootjans.nl)): wie hij is, sport, projecten en een kort cv.
-Eén statische pagina, geprerenderd met `nuxt generate`. Geen database, geen server, geen PWA.
+Eén pagina, op Vercel gerenderd met ISR (hooguit één keer per uur ververst). De enige server-route is
+`/api/sport-overview` voor Strava; Neon bewaart alleen de nieuwste Strava refresh token. Geen PWA.
 
 ## Taal
 
@@ -17,7 +18,9 @@ Eén statische pagina, geprerenderd met `nuxt generate`. Geen database, geen ser
   voor de layer, dus nooit een `components/ui/`-map in deze repo.
 - Content staat in getypte databestanden in `app/data/` (zie README), niet in componenten.
 - Codestijl: 4 spaties, puntkomma's, enkele quotes; ESLint + Prettier (`npm run lint`, `npm run format`).
-- Controleren: `npm run typecheck`, `npm run lint`, `npm run generate` (de HTML in `.output/public` moet alle secties bevatten).
+- Gedeelde types en helpers voor app én server staan in `shared/` (`#shared/...`).
+- Controleren: `npm run typecheck`, `npm run lint`, `npm test` en `npm run build`.
+- Strava-gegevens en de Neon-URL staan in env vars (zie `.env.example`), nooit in de code of de chat.
 - Dev-server: `npm run dev` (Claude-preview: `dev` in `.claude/launch.json`, poort 5174).
 
 ## Design system

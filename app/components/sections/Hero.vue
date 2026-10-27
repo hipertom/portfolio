@@ -68,8 +68,8 @@ const [firstNavigationItem] = navigationItems;
                     <img
                         :src="portraitUrl"
                         :alt="`Portrait of ${profile.fullName}, smiling`"
-                        width="900"
-                        height="900"
+                        width="1024"
+                        height="1280"
                         fetchpriority="high"
                         class="size-full object-cover object-[50%_30%] mix-blend-multiply"
                     />

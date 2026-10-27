@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { socialLinks } from '~/data/socialLinks';
-import type { TotalsPeriod } from '~/types/sport';
+import type { TotalsPeriod } from '#shared/types/sport';
 
 const { overview, isLoading, hasError, reload } = useSportOverview();
 
 const stravaLink = socialLinks.find(({ brand }) => brand === 'strava');
+const poweredByStravaLogoUrl = '/strava/api_logo_pwrdBy_strava_horiz_orange.svg';
 
 const totalsPeriods: { value: TotalsPeriod; label: string }[] = [
-    { value: 'month', label: 'This month' },
     { value: 'year', label: 'This year' },
+    { value: 'month', label: 'This month' },
 ];
-const selectedPeriod = ref<TotalsPeriod>('month');
+const selectedPeriod = ref<TotalsPeriod>('year');
 
 const statTiles = computed(() => {
     if (!overview.value) {
@@ -20,8 +21,18 @@ const statTiles = computed(() => {
     const totals = overview.value.totals[selectedPeriod.value];
 
     return [
-        { label: 'Running', value: formatKilometres(totals.runDistanceInMeters, 0), unit: 'km', tone: 'peach' },
-        { label: 'Time active', value: formatHours(totals.activeTimeInSeconds), unit: 'hrs', tone: 'butter' },
+        {
+            label: 'Running',
+            value: formatWholeKilometresRoundedUp(totals.runDistanceInMeters),
+            unit: 'km',
+            tone: 'peach',
+        },
+        {
+            label: 'Time active',
+            value: formatWholeHoursRoundedUp(totals.activeTimeInSeconds),
+            unit: 'hrs',
+            tone: 'butter',
+        },
         { label: 'Padel sessions', value: String(totals.padelSessionCount), tone: 'white' },
         { label: 'Gym sessions', value: String(totals.strengthSessionCount), tone: 'ink' },
     ] as const;
@@ -32,38 +43,37 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
 
 <template>
     <section id="sport" aria-labelledby="sport-title" class="page-container py-12">
-        <div class="rounded-[2.5rem] bg-sage-soft px-5 py-14 sm:px-10 sm:py-20 lg:px-14">
-            <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-                <LocalSectionHeading
-                    id="sport-title"
-                    eyebrow="Off the clock"
-                    title="Happiest when I'm moving."
-                    tone="white"
-                >
-                    Sport is how I clear my head. Running gives me headspace, the gym keeps me strong and padel is where
-                    my competitive side comes out. Here's what I've been up to lately.
-                </LocalSectionHeading>
-                <UiButton
-                    v-if="stravaLink"
-                    v-reveal="100"
-                    :to="stravaLink.url"
-                    target="_blank"
-                    variant="accent"
-                    :icon="brandIcons.strava"
-                    class="shrink-0 self-start lg:self-auto"
-                >
-                    Follow me on Strava
-                </UiButton>
-            </div>
+        <div class="rounded-[2.5rem] bg-sage-soft px-5 py-10 sm:px-10 sm:py-12 lg:px-14">
+            <LocalSectionHeading
+                id="sport-title"
+                wide
+                eyebrow="Off the clock"
+                title="Happiest when I'm moving."
+                tone="white"
+            >
+                <template #action>
+                    <UiButton
+                        v-if="stravaLink"
+                        :to="stravaLink.url"
+                        target="_blank"
+                        variant="accent"
+                        :icon="brandIcons.strava"
+                    >
+                        Follow me on Strava
+                    </UiButton>
+                </template>
+                Sport is how I clear my head. Running gives me headspace, the gym keeps me strong and padel is where my
+                competitive side comes out. Here's what I've been up to lately.
+            </LocalSectionHeading>
 
-            <div v-if="isLoading" class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
+            <div v-if="isLoading" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
                 <span class="sr-only">Loading activities…</span>
                 <UiSkeleton v-for="index in 3" :key="index" :lines="index === 1 ? 3 : 2" />
             </div>
 
             <UiErrorState
                 v-else-if="hasError"
-                class="mt-14"
+                class="mt-12"
                 role="alert"
                 title="Strava is taking a breather."
                 retry-label="Try again"
@@ -73,7 +83,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
             </UiErrorState>
 
             <template v-else-if="overview">
-                <div class="mt-14">
+                <div class="mt-12">
                     <UiSegmented v-model="selectedPeriod" :options="totalsPeriods" label="Totals period" />
 
                     <div class="mt-5 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
@@ -86,7 +96,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     </div>
                 </div>
 
-                <div v-if="overview.recentRaces.length" class="mt-16">
+                <div v-if="overview.recentRaces.length" class="mt-12">
                     <h3 class="text-2xl font-semibold">Race results</h3>
                     <ul
                         class="-mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 [scrollbar-width:none] gap-5 overflow-x-auto px-5 py-3 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0"
@@ -102,7 +112,7 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                     </ul>
                 </div>
 
-                <div class="mt-16">
+                <div class="mt-12">
                     <h3 class="text-2xl font-semibold">Latest activities</h3>
                     <ul
                         v-if="hasActivities"
@@ -120,6 +130,14 @@ const hasActivities = computed(() => Boolean(overview.value?.recentActivities.le
                         Nothing logged yet. Probably resting, or out on a run without a watch.
                     </p>
                 </div>
+
+                <img
+                    :src="poweredByStravaLogoUrl"
+                    alt="Powered by Strava"
+                    width="365"
+                    height="37"
+                    class="mt-10 ml-auto block h-4 w-auto sm:mt-12"
+                />
             </template>
         </div>
     </section>

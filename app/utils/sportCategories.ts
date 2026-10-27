@@ -1,29 +1,24 @@
-import type { SportCategory, SportType } from '~/types/sport';
+import type { SportCategory } from '#shared/types/sport';
 
-interface SportCategoryDetails {
-    label: string;
-    tone: Tone;
+const sportTypeLabelOverrides: Record<string, string> = {
+    Pickleball: 'Padel',
+};
+
+export const sportCategoryTones: Record<SportCategory, Tone> = {
+    running: 'peach',
+    padel: 'butter',
+    strength: 'sage',
+    cycling: 'peach',
+    walking: 'sage',
+    other: 'cream',
+};
+
+export function getSportTypeLabel(sportType: string): string {
+    return sportTypeLabelOverrides[sportType] ?? splitIntoWords(sportType);
 }
 
-const sportCategoryBySportType: Record<SportType, SportCategory> = {
-    Run: 'running',
-    TrailRun: 'running',
-    Padel: 'padel',
-    WeightTraining: 'strength',
-    Workout: 'strength',
-    Ride: 'cycling',
-    Walk: 'walking',
-    Hike: 'walking',
-};
+function splitIntoWords(sportType: string): string {
+    const words = sportType.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
 
-export const sportCategoryDetails: Record<SportCategory, SportCategoryDetails> = {
-    running: { label: 'Run', tone: 'peach' },
-    padel: { label: 'Padel', tone: 'butter' },
-    strength: { label: 'Strength', tone: 'sage' },
-    cycling: { label: 'Ride', tone: 'peach' },
-    walking: { label: 'Walk', tone: 'sage' },
-};
-
-export function getSportCategory(sportType: SportType): SportCategory {
-    return sportCategoryBySportType[sportType];
+    return words.charAt(0).toUpperCase() + words.slice(1);
 }

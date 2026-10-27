@@ -24,13 +24,13 @@ const age = calculateAge(profile.birthDate);
                 </div>
             </UiTile>
 
-            <div v-reveal="80" class="overflow-hidden rounded-[2rem] sm:row-span-2">
+            <div v-reveal="80" class="relative overflow-hidden rounded-[2rem] sm:row-span-2">
                 <img
                     v-if="profile.aboutPhotoUrl"
                     :src="profile.aboutPhotoUrl"
-                    :alt="`${profile.fullName} outside`"
+                    :alt="`${profile.fullName} giving a thumbs up during a run`"
                     loading="lazy"
-                    class="size-full object-cover"
+                    class="aspect-[4/3] size-full object-cover object-[50%_35%] sm:absolute sm:inset-0 sm:aspect-auto"
                 />
                 <LocalImagePlaceholder v-else tone="sage" class="aspect-[4/3] size-full sm:aspect-auto" />
             </div>

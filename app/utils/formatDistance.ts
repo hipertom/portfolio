@@ -3,3 +3,7 @@ export function formatKilometres(distanceInMeters: number, fractionDigits = 1): 
 
     return new Intl.NumberFormat('en-GB', { maximumFractionDigits: fractionDigits }).format(kilometres);
 }
+
+export function formatWholeKilometresRoundedUp(distanceInMeters: number): string {
+    return new Intl.NumberFormat('en-GB').format(Math.ceil(distanceInMeters / 1000));
+}

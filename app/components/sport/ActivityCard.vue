@@ -1,23 +1,42 @@
 <script setup lang="ts">
-import type { Activity } from '~/types/sport';
+import type { Activity } from '#shared/types/sport';
 
 const { activity } = defineProps<{ activity: Activity }>();
 
 const category = computed(() => getSportCategory(activity.sportType));
-const categoryDetails = computed(() => sportCategoryDetails[category.value]);
+const sportTypeLabel = computed(() => getSportTypeLabel(activity.sportType));
+const isRun = computed(() => category.value === 'running');
+const title = computed(() => (isRun.value ? activity.name : sportTypeLabel.value));
 
 const metrics = computed(() => {
+    const distance = { label: 'Distance', value: `${formatKilometres(activity.distanceInMeters)} km` };
     const duration = { label: 'Time', value: formatDuration(activity.movingTimeInSeconds) };
+    const heartRate =
+        activity.averageHeartRate === null
+            ? []
+            : [{ label: 'Avg HR', value: formatHeartRate(activity.averageHeartRate) }];
 
-    if (activity.distanceInMeters === 0) {
-        return [duration];
+    if (category.value === 'running') {
+        return [
+            distance,
+            { label: 'Pace', value: formatPace(activity.distanceInMeters, activity.movingTimeInSeconds) },
+            duration,
+        ];
     }
 
-    return [
-        { label: 'Distance', value: `${formatKilometres(activity.distanceInMeters)} km` },
-        { label: 'Pace', value: formatPace(activity.distanceInMeters, activity.movingTimeInSeconds) },
-        duration,
-    ];
+    if (category.value === 'cycling') {
+        return [
+            distance,
+            { label: 'Speed', value: formatSpeed(activity.distanceInMeters, activity.movingTimeInSeconds) },
+            duration,
+        ];
+    }
+
+    if (category.value === 'walking') {
+        return [distance, ...heartRate, duration];
+    }
+
+    return [duration, ...heartRate];
 });
 </script>
 
@@ -28,14 +47,14 @@ const metrics = computed(() => {
         <header class="flex items-start gap-4">
             <span
                 class="grid size-12 shrink-0 place-items-center rounded-2xl"
-                :class="TONE_SURFACE[categoryDetails.tone]"
+                :class="TONE_SURFACE[sportCategoryTones[category]]"
             >
                 <SportIcon :category="category" class="size-6" />
             </span>
             <div class="min-w-0">
-                <h4 class="truncate font-display text-lg font-semibold">{{ activity.name }}</h4>
+                <h4 class="truncate font-display text-lg font-semibold">{{ title }}</h4>
                 <p class="text-sm text-ink-soft">
-                    {{ categoryDetails.label }} &middot;
+                    <template v-if="isRun">{{ sportTypeLabel }} &middot; </template>
                     <time :datetime="activity.startDate">{{ formatRelativeDay(activity.startDate) }}</time>
                 </p>
             </div>
@@ -47,5 +66,7 @@ const metrics = computed(() => {
                 <dd class="mt-0.5 font-semibold tabular-nums">{{ metric.value }}</dd>
             </div>
         </dl>
+
+        <SportStravaLink :activity-id="activity.id" class="-mt-2 self-start" />
     </article>
 </template>
