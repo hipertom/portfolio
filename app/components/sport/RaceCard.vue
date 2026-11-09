@@ -49,7 +49,10 @@ const results = computed(() => {
                 </span>
                 <span class="text-2xl font-semibold">km</span>
             </p>
-            <UiPill v-if="raceDistance.label" tone="butter" class="mt-2">{{ raceDistance.label }}</UiPill>
+            <!-- Always takes the pill's height, so the results line up across cards with and without a pill. -->
+            <div class="mt-2 h-6">
+                <UiPill v-if="raceDistance.label" tone="butter">{{ raceDistance.label }}</UiPill>
+            </div>
 
             <dl class="mt-5 grid w-full grid-cols-2 gap-4 border-t border-ink/10 pt-4">
                 <div v-for="result in results" :key="result.label">
