@@ -17,11 +17,13 @@ const results = computed(() => {
         { label: 'Pace', value: formatPace(raceDistance.value.distanceInMeters, timeInSeconds) },
     ];
 
+    const distance = { label: 'Distance', value: `${formatKilometres(raceDistance.value.distanceInMeters)} km` };
+
     if (averageHeartRate === null) {
-        return timeAndPace;
+        return [...timeAndPace, distance];
     }
 
-    return [...timeAndPace, { label: 'Avg HR', value: formatHeartRate(averageHeartRate) }];
+    return [...timeAndPace, { label: 'Avg HR', value: formatHeartRate(averageHeartRate) }, distance];
 });
 </script>
 
@@ -43,16 +45,21 @@ const results = computed(() => {
             <h4 class="mt-1 truncate font-display text-xl font-semibold">{{ race.name }}</h4>
         </header>
         <div class="flex flex-1 flex-col items-start px-8 pt-5 pb-7">
-            <p class="flex items-baseline gap-1.5 font-display">
-                <span class="text-6xl font-bold tracking-tight tabular-nums">
-                    {{ formatKilometres(raceDistance.distanceInMeters) }}
+            <!-- A fixed height, so the results line up whether the name takes one line or two. -->
+            <p class="flex h-15 items-end font-display font-bold tracking-tight">
+                <span
+                    v-if="raceDistance.name"
+                    :class="raceDistance.name.length > 4 ? 'text-3xl/none' : 'text-6xl/none'"
+                >
+                    {{ raceDistance.name }}
                 </span>
-                <span class="text-2xl font-semibold">km</span>
+                <span v-else class="flex items-baseline gap-1.5">
+                    <span class="text-6xl/none tabular-nums">{{
+                        formatKilometres(raceDistance.distanceInMeters)
+                    }}</span>
+                    <span class="text-2xl font-semibold">km</span>
+                </span>
             </p>
-            <!-- Always takes the pill's height, so the results line up across cards with and without a pill. -->
-            <div class="mt-2 h-6">
-                <UiPill v-if="raceDistance.label" tone="butter">{{ raceDistance.label }}</UiPill>
-            </div>
 
             <dl class="mt-5 grid w-full grid-cols-2 gap-4 border-t border-ink/10 pt-4">
                 <div v-for="result in results" :key="result.label">
