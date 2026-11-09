@@ -45,19 +45,12 @@ const results = computed(() => {
             <h4 class="mt-1 truncate font-display text-xl font-semibold">{{ race.name }}</h4>
         </header>
         <div class="flex flex-1 flex-col items-start px-8 pt-5 pb-7">
-            <!-- A fixed height, so the results line up whether the name takes one line or two. -->
-            <p class="flex h-15 items-end font-display font-bold tracking-tight">
-                <span
-                    v-if="raceDistance.name"
-                    :class="raceDistance.name.length > 4 ? 'text-3xl/none' : 'text-6xl/none'"
-                >
-                    {{ raceDistance.name }}
-                </span>
-                <span v-else class="flex items-baseline gap-1.5">
-                    <span class="text-6xl/none tabular-nums">{{
-                        formatKilometres(raceDistance.distanceInMeters)
-                    }}</span>
-                    <span class="text-2xl font-semibold">km</span>
+            <p class="flex items-baseline gap-1.5 font-display">
+                <span class="text-5xl/none font-bold tracking-tight tabular-nums">{{
+                    raceDistance.headline.value
+                }}</span>
+                <span v-if="raceDistance.headline.unit" class="text-xl font-semibold">
+                    {{ raceDistance.headline.unit }}
                 </span>
             </p>
 
