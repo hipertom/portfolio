@@ -35,6 +35,7 @@ describe('buildSportOverview', () => {
                 elevationGainInMeters: 20,
                 averageHeartRate: 148.6,
                 isRace: false,
+                officialTimeInSeconds: null,
             },
         ]);
     });

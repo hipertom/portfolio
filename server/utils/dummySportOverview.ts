@@ -9,9 +9,16 @@ function daysAgo(days: number, hour: number): string {
 }
 
 function createActivity(
-    activity: Omit<Activity, 'elevationGainInMeters' | 'isRace' | 'averageHeartRate'> & Partial<Activity>,
+    activity: Omit<Activity, 'elevationGainInMeters' | 'isRace' | 'averageHeartRate' | 'officialTimeInSeconds'> &
+        Partial<Activity>,
 ): Activity {
-    return { elevationGainInMeters: 0, isRace: false, averageHeartRate: 132, ...activity };
+    return {
+        elevationGainInMeters: 0,
+        isRace: false,
+        averageHeartRate: 132,
+        officialTimeInSeconds: null,
+        ...activity,
+    };
 }
 
 export function createDummySportOverview(): SportOverview {
@@ -36,9 +43,10 @@ export function createDummySportOverview(): SportOverview {
                 name: 'Autumn 10K',
                 sportType: 'Run',
                 startDate: daysAgo(24, 10),
-                distanceInMeters: 10_000,
+                distanceInMeters: 10_140,
                 movingTimeInSeconds: 47 * 60 + 52,
                 isRace: true,
+                officialTimeInSeconds: 47 * 60 + 58,
             }),
             createActivity({
                 id: 102,
