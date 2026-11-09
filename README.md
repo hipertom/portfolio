@@ -22,6 +22,7 @@ npm run dev
 | `npm test`          | Run the unit tests with Vitest     |
 | `npm run lint`      | Lint and fix with ESLint           |
 | `npm run format`    | Format `app/` with Prettier        |
+| `npm run og-image`  | Retake `public/og-image.jpg`       |
 
 ## Hosting
 

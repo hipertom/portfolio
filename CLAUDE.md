@@ -33,6 +33,13 @@ Eén pagina, op Vercel gerenderd met ISR (hooguit één keer per uur ververst). 
 - **Eén component voor alle consumers:** geen eigen versie of override van een layer-component in deze repo. Past een
   component niet, dan breid je hem uit in de layer-repo (`../warm-sorbet`), zodat hij ook voor de package tracker werkt.
 
+## Open Graph-afbeelding
+
+`public/og-image.jpg` is een vaste screenshot van de hero. **Vraag jezelf na elke wijziging af of de hero er
+visueel anders uitziet** (foto, naam, intro, knoppen, links, kleuren, fonts of layout uit de layer). Zo ja: start de
+dev-server, draai `npm run og-image`, bekijk het resultaat en commit het met de wijziging mee. De vaste specs
+(1200×630, uitsnede, JPEG-kwaliteit) staan in `scripts/og-image.mjs`; pas ze daar niet zomaar aan.
+
 ## Git
 
 - Commits: Conventional Commits, logisch opgesplitst, korte body met bullets, geen Claude-vermelding.
