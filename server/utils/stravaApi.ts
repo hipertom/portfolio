@@ -16,6 +16,10 @@ export interface StravaSummaryActivity {
     average_heartrate?: number;
 }
 
+interface StravaDetailedActivity extends StravaSummaryActivity {
+    description: string | null;
+}
+
 interface StravaTokenResponse {
     access_token: string;
     refresh_token: string;
@@ -59,4 +63,12 @@ export async function fetchStravaActivitiesSince(accessToken: string, since: Dat
     }
 
     return activities;
+}
+
+export async function fetchStravaActivityDescription(accessToken: string, activityId: number): Promise<string | null> {
+    const activity = await $fetch<StravaDetailedActivity>(`${stravaApiBaseUrl}/activities/${activityId}`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+    });
+
+    return activity.description;
 }

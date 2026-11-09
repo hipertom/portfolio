@@ -10,5 +10,7 @@ export default defineEventHandler(async () => {
     const accessToken = await getStravaAccessToken();
     const stravaActivities = await fetchStravaActivitiesSince(accessToken, startOfPreviousYear());
 
-    return buildSportOverview(stravaActivities);
+    const overview = buildSportOverview(stravaActivities);
+
+    return { ...overview, recentRaces: await addOfficialTimes(accessToken, overview.recentRaces) };
 });
