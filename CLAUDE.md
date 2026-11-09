@@ -36,29 +36,9 @@ Eén pagina, op Vercel gerenderd met ISR (hooguit één keer per uur ververst). 
 ## Open Graph-afbeelding
 
 `public/og-image.jpg` is een vaste screenshot van de hero. **Vraag jezelf na elke wijziging af of de hero er
-visueel anders uitziet** (foto, naam, intro, knoppen, links, kleuren, fonts of layout uit de layer). Zo ja: maak de
-screenshot opnieuw, bekijk hem en commit hem met de wijziging mee.
-
-Altijd met dezelfde specs, zodat formaat en uitsnede gelijk blijven:
-
-- Chrome via Playwright (`playwright-core` met `channel: 'chrome'`, buiten het project, geen dependency)
-- viewport 1200×630, `deviceScaleFactor: 1`, `reducedMotion: 'reduce'`
-- tegen de dev-server (`http://localhost:5174/`), wachten op `networkidle` en `document.fonts.ready`, daarna 800 ms
-- de nav en de Nuxt DevTools verborgen, de hero (`#top`) met `padding-top: 4.5rem`
-- JPEG, kwaliteit 85, de viewport zelf (geen full page)
-
-```js
-import { chromium } from 'playwright-core';
-
-const browser = await chromium.launch({ channel: 'chrome' });
-const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
-await page.goto('http://localhost:5174/', { waitUntil: 'networkidle' });
-await page.addStyleTag({ content: 'nav,#nuxt-devtools-container{display:none!important} #top{padding-top:4.5rem!important}' });
-await page.evaluate(() => document.fonts.ready);
-await page.waitForTimeout(800);
-await page.screenshot({ path: 'public/og-image.jpg', type: 'jpeg', quality: 85 });
-await browser.close();
-```
+visueel anders uitziet** (foto, naam, intro, knoppen, links, kleuren, fonts of layout uit de layer). Zo ja: start de
+dev-server, draai `npm run og-image`, bekijk het resultaat en commit het met de wijziging mee. De vaste specs
+(1200×630, uitsnede, JPEG-kwaliteit) staan in `scripts/og-image.mjs`; pas ze daar niet zomaar aan.
 
 ## Git
 
