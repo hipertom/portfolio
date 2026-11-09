@@ -1,17 +1,37 @@
-const standardRaceDistances = [
-    { name: 'Marathon', distanceInMeters: 42_195 },
-    { name: 'Half marathon', distanceInMeters: 21_097.5 },
-    { name: '10K', distanceInMeters: 10_000 },
-    { name: '5K', distanceInMeters: 5_000 },
+// Race distances measured by a watch run a little long or short. Within the tolerance of a standard race distance the
+// race counts as that distance; the nearest one wins where two overlap. The label only names distances whose number
+// says too little on its own (miles, half and full marathon).
+export interface RaceDistance {
+    distanceInMeters: number;
+    label: string | null;
+}
+
+const standardRaceDistances: RaceDistance[] = [
+    { distanceInMeters: 5_000, label: null },
+    { distanceInMeters: 8_046.72, label: '5 miles' },
+    { distanceInMeters: 10_000, label: null },
+    { distanceInMeters: 15_000, label: null },
+    { distanceInMeters: 16_093.44, label: '10 miles' },
+    { distanceInMeters: 20_000, label: null },
+    { distanceInMeters: 21_097.5, label: 'Half marathon' },
+    { distanceInMeters: 30_000, label: null },
+    { distanceInMeters: 42_195, label: 'Marathon' },
 ];
 
-const gpsTolerance = 0.03;
+const tolerance = 0.05;
 
-export function getRaceDistanceName(distanceInMeters: number): string | null {
-    const standardDistance = standardRaceDistances.find(
-        (raceDistance) =>
-            Math.abs(distanceInMeters - raceDistance.distanceInMeters) / raceDistance.distanceInMeters <= gpsTolerance,
-    );
+function relativeDifference(measuredInMeters: number, standardInMeters: number): number {
+    return Math.abs(measuredInMeters - standardInMeters) / standardInMeters;
+}
 
-    return standardDistance?.name ?? null;
+export function getRaceDistance(measuredInMeters: number): RaceDistance {
+    const nearestStandardDistance = standardRaceDistances
+        .filter(({ distanceInMeters }) => relativeDifference(measuredInMeters, distanceInMeters) <= tolerance)
+        .sort(
+            (first, second) =>
+                relativeDifference(measuredInMeters, first.distanceInMeters) -
+                relativeDifference(measuredInMeters, second.distanceInMeters),
+        )[0];
+
+    return nearestStandardDistance ?? { distanceInMeters: measuredInMeters, label: null };
 }

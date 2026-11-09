@@ -5,24 +5,29 @@ const { race } = defineProps<{ race: Activity }>();
 
 const pinPositions = ['top-3 left-3', 'top-3 right-3', 'bottom-3 left-3', 'bottom-3 right-3'];
 
-const distanceName = computed(() => getRaceDistanceName(race.distanceInMeters));
+const raceDistance = computed(() => getRaceDistance(race.distanceInMeters));
 const results = computed(() => {
-    const finishTimeAndPace = [
-        { label: 'Finish time', value: formatClockTime(race.movingTimeInSeconds) },
-        { label: 'Pace', value: formatPace(race.distanceInMeters, race.movingTimeInSeconds) },
+    const { officialTimeInSeconds, movingTimeInSeconds, averageHeartRate } = race;
+    const timeInSeconds = officialTimeInSeconds ?? movingTimeInSeconds;
+    const timeAndPace = [
+        {
+            label: officialTimeInSeconds === null ? 'Strava time' : 'Official time',
+            value: formatClockTime(timeInSeconds),
+        },
+        { label: 'Pace', value: formatPace(raceDistance.value.distanceInMeters, timeInSeconds) },
     ];
 
-    if (race.averageHeartRate === null) {
-        return finishTimeAndPace;
+    if (averageHeartRate === null) {
+        return timeAndPace;
     }
 
-    return [...finishTimeAndPace, { label: 'Avg HR', value: formatHeartRate(race.averageHeartRate) }];
+    return [...timeAndPace, { label: 'Avg HR', value: formatHeartRate(averageHeartRate) }];
 });
 </script>
 
 <template>
     <article
-        class="relative overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 transition duration-500 ease-(--ease-bounce) hover:shadow-lift"
+        class="relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 transition duration-500 ease-(--ease-bounce) hover:shadow-lift"
     >
         <span
             v-for="position in pinPositions"
@@ -37,22 +42,22 @@ const results = computed(() => {
             </p>
             <h4 class="mt-1 truncate font-display text-xl font-semibold">{{ race.name }}</h4>
         </header>
-        <div class="px-8 pt-5 pb-7">
+        <div class="flex flex-1 flex-col items-start px-8 pt-5 pb-7">
             <p class="flex items-baseline gap-1.5 font-display">
                 <span class="text-6xl font-bold tracking-tight tabular-nums">
-                    {{ formatKilometres(race.distanceInMeters) }}
+                    {{ formatKilometres(raceDistance.distanceInMeters) }}
                 </span>
                 <span class="text-2xl font-semibold">km</span>
             </p>
-            <UiPill v-if="distanceName" tone="butter" class="mt-2">{{ distanceName }}</UiPill>
+            <UiPill v-if="raceDistance.label" tone="butter" class="mt-2">{{ raceDistance.label }}</UiPill>
 
-            <dl class="mt-5 grid grid-cols-2 gap-4 border-t border-ink/10 pt-4">
+            <dl class="mt-5 grid w-full grid-cols-2 gap-4 border-t border-ink/10 pt-4">
                 <div v-for="result in results" :key="result.label">
                     <dt class="text-xs font-medium text-ink-soft">{{ result.label }}</dt>
                     <dd class="mt-0.5 font-display text-xl font-bold tabular-nums">{{ result.value }}</dd>
                 </div>
             </dl>
-            <SportStravaLink :activity-id="race.id" class="mt-5 inline-block" />
+            <SportStravaLink :activity-id="race.id" class="mt-auto pt-5" />
         </div>
     </article>
 </template>
