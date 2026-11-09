@@ -12,6 +12,8 @@ export interface Activity {
     elevationGainInMeters: number;
     averageHeartRate: number | null;
     isRace: boolean;
+    /** The official race time from the Strava description; only filled in for recent races. */
+    officialTimeInSeconds: number | null;
 }
 
 export interface SportTotals {

@@ -17,7 +17,7 @@ export function formatDuration(totalSeconds: number): string {
 }
 
 export function formatClockTime(totalSeconds: number): string {
-    const { hours, minutes, seconds } = splitSeconds(totalSeconds);
+    const { hours, minutes, seconds } = splitSeconds(Math.round(totalSeconds));
     const paddedSeconds = String(seconds).padStart(2, '0');
 
     if (hours === 0) {
